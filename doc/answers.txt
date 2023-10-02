@@ -1,1 +1,14 @@
-Q1
+Q1. In GitHub Desktop, where does the new file appear?
+It appears in the main branch
+
+Q2. What do you see in GitHub Desktop?
+The modification done is shown on the Github Desktop
+
+Q3. Where can you find the history of changes to the repository?
+Under the "current repository" and next to the "changes" tab
+
+Q4. Which version of README can you see now?
+Now we can see the original version of the README
+
+Q5. What appears in the second tab at the very top?
+In appears a "Detached HEAD" "On 976e7ee" 
