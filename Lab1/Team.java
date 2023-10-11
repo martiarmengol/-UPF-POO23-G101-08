@@ -14,7 +14,7 @@ public class Team {
     
     LinkedList<Player> playerList = new LinkedList<>();
 
-    public void Team(String n, Country c, Gender g){
+    public Team(String n, Country c, Gender g){
         name = n;
         country = c;
         gender = g;
@@ -53,11 +53,11 @@ public class Team {
     }
 
     public void printStats(){
-        System.out.println(noMatches);
-        System.out.println(noWins);
-        System.out.println(noLosses);
-        System.out.println(noTies);
-        System.out.println(goalsAgainst);
-        System.out.println(goalsScored);
+        System.out.println("Matches:"+noMatches);
+        System.out.println("Wins"+noWins);
+        System.out.println("Losses:"+noLosses);
+        System.out.println("Tie:"+noTies);
+        System.out.println("Against:"+goalsAgainst);
+        System.out.println("Goals Scored"+goalsScored);
     }
 }
