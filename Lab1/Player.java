@@ -10,7 +10,7 @@ public class Player {
     private int noAssists;
     private int noGoals;
     
-    public void Player (boolean g, String n, int a, Country nat){
+    public Player(boolean g, String n, int a, Country nat){
         female = g;
         name = n;
         age = a;
@@ -44,11 +44,12 @@ public class Player {
     }
 
     public void printStats(){
-        System.out.println(noAssists);
-        System.out.println(noPasses);
-        System.out.println(noGoals);
-        System.out.println(noMatches);
-        System.out.println(noShots);
+        System.out.println("Assists:"+noAssists);
+        System.out.println("Passes"+noPasses);
+        System.out.println("Goals:"+noGoals);
+        System.out.println("Matches:"+noMatches);
+        System.out.println("Shots:"+noShots);
+        System.out.println("Tackles:"+noTackles);
     }
 }
 
