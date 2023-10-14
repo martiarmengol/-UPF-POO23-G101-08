@@ -4,7 +4,6 @@ public class Team {
     private String name;
     private Country country;
     private Gender gender;
-    //private Player[] players;
     private int noMatches;
     private int noWins;
     private int noTies;
@@ -14,16 +13,23 @@ public class Team {
     
     LinkedList<Player> playerList = new LinkedList<>();
 
-    public Team(String n, Country c, Gender g){
+    public Team(String n, Country c, Gender g, int matches, int wins, int ties, int losses, int scored, int against) {
         name = n;
         country = c;
         gender = g;
+        noMatches = matches;
+        noWins = wins;
+        noTies = ties;
+        noLosses = losses;
+        goalsScored = scored;
+        goalsAgainst = against;
     }
+    
 
     public String getName(){
         return name;
     }
-
+    
     public Country getCountry(){
         return country;
     }
