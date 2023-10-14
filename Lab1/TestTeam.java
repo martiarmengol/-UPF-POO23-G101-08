@@ -1,35 +1,27 @@
 public class TestTeam {
     public static void main(String[] args) {
-        
-        Country germany = new Country("Germany");
-        Country france = new Country("France");
+        // Create a new Team
+        Country playerCountry = new Country("Spain"); 
+        Team team = new Team("TeamName", playerCountry, Gender.MIXED, 0, 0, 0, 0, 0, 0);
 
-        Player player1 = new Player(true, "Alice", 25, germany);
-        Player player2 = new Player(false, "Bob", 30, france);
-        Player player3 = new Player(true, "Eve", 28, germany);
+        // Create some players
+        Player player1 = new Player(true, "Alice", 25, playerCountry, 10, 15, 20, 30, 5, 8);
+        Player player2 = new Player(false, "Bob", 30, playerCountry, 15, 20, 25, 35, 10, 12);
 
-        
-        Team team1 = new Team("Team A", germany, Gender.FEMALE);
-        Team team2 = new Team("Team B", france, Gender.MALE);
+        // Add players to the team
+        team.addPlayer(player1);
+        team.addPlayer(player2);
 
-        
-        team1.addPlayer(player1);
-        team1.addPlayer(player3);
-        team2.addPlayer(player2);
+        // Test the team's methods
+        System.out.println("Team Name: " + team.getName());
+        System.out.println("Team Country: " + team.getCountry().getName());
+        System.out.println("Team Gender: " + team.getGender());
 
+        // Play a match
+        team.playMatch(3, 2);
 
-        System.out.println("Team 1: " + team1.getName() + " from " + team1.getCountry().getName() + ", Gender: " + team1.getGender());
-        System.out.println("Team 2: " + team2.getName() + " from " + team2.getCountry().getName() + ", Gender: " + team2.getGender());
-        System.out.println("/////////////////");
-        
-        team1.playMatch(2, 1);
-        team2.playMatch(1, 2);
-
-        
-        System.out.println("Team 1 Statistics:");
-        team1.printStats();
-        System.out.println("");
-        System.out.println("Team 2 Statistics:");
-        team2.printStats();
+        // Print team statistics
+        System.out.println("Team Stats:");
+        team.printStats();
     }
 }
