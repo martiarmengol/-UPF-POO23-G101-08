@@ -1,21 +1,19 @@
 public class TestPlayer {
-        public static void main(String[] args) {
-            Country germany = new Country("Germany");
-            Country france = new Country("France");
-    
-            Player player1 = new Player(true, "Alice", 25, germany);
-            Player player2 = new Player(false, "Bob", 30, france);
-    
-            player1.update(10, 5, 15, 3, 8);
-            player2.update(8, 7, 12, 2, 6);
-    
-            System.out.println(player1.getName() + " is " + player1.getAge() + " years old and " + (player1.isFemale()? "female" : "male") + ". She is from " + player1.getNationality().getName() + ".");
-            System.out.println(player2.getName() + " is " + player2.getAge() + " years old and " + (player2.isFemale()? "female" : "male") + ". He is from " + player2.getNationality().getName() + ".");
-            
-            System.out.println("Player 1: "+player1.getName());
-            player1.printStats();
-            System.out.println("");
-            System.out.println("Player 2: "+player2.getName());
-            player2.printStats();
-        }
+    public static void main(String[] args) {
+        // Create a new Player
+        Country playerCountry = new Country("CountryName"); // Assuming you have a Country class
+        Player player = new Player(true, "Alice", 25, playerCountry, 10, 15, 20, 30, 5, 8);
+
+        // Test the methods
+        System.out.println("Player Name: " + player.getName());
+        System.out.println("Player Age: " + player.getAge());
+        System.out.println("Is the Player Female? " + player.isFemale());
+
+        // Update player stats
+        player.update(12, 25, 35, 10, 12);
+
+        // Print player stats
+        System.out.println("Player Stats:");
+        player.printStats();
+    }
 }
