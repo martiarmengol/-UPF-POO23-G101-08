@@ -10,11 +10,17 @@ public class Player {
     private int noAssists;
     private int noGoals;
     
-    public Player(boolean g, String n, int a, Country nat){
+    public Player(boolean g, String n, int a, Country nat, int matches, int tackles, int passes, int shots, int assists, int goals) {
         female = g;
         name = n;
         age = a;
         nationality = nat;
+        noMatches = matches;
+        noTackles = tackles;
+        noPasses = passes;
+        noShots = shots;
+        noAssists = assists;
+        noGoals = goals;
     }
 
     public boolean isFemale (){
