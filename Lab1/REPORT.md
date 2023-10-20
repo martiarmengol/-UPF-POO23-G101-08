@@ -30,7 +30,7 @@ A potential improvement to the current architecture would be to add a “Stats�
 
 This “Stats” class would look something like this:
 
-//Atributes
+_//Atributes_
 private int noMatches; 
 private int noWins; 
 private int noTies; 
@@ -38,16 +38,16 @@ private int noLosses;
 private int goalsScored; 
 private int goalsAgainst;
 
-//Methods (Examples)
+_//Methods (Examples)_
 
 public Stats() { 
-noMatches = 0; 
-noWins = 0; 
-noTies = 0; 
-noLosses = 0; 
-goalsScored = 0; 
-goalsAgainst = 0; 
-} //Constructor
+    noMatches = 0; 
+    noWins = 0; 
+    noTies = 0; 
+    noLosses = 0; 
+    goalsScored = 0; 
+    goalsAgainst = 0; 
+} _//Constructor_
 
 public void incrementMatches() {
 noMatches++; 
