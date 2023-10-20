@@ -18,7 +18,7 @@ Methods to implement:
 ### _Country Class:_ 
 This class represents the nationality of players and teams. It contains the name of the country.
 ### _Gender enum:_
-In order to have avaiable all possible genders for the teams, we created a "Gender" enum that has all poible team genders (MALE,FEMALE,MIXED).
+In order to have available all possible genders for the teams, we created a “Gender” enum that has all possible team genders (MALE, FEMALE, MIXED).
 
 ## _**2- ALTERNATIVE**_
 
@@ -32,7 +32,7 @@ The chosen solution employs a basic class structure with composition, encapsulat
 + **Enums:** The Gender enum is used to represent gender options (MALE, FEMALE, MIXED), providing a predefined set of choices for gender.
   
 
-However, a potential improvement to the current architecture would be to add a “Stats” class specifically for managing player and team statistics. This situation improves the organization, adaptability, and maintainability of the code by incorporating a “Stats” object into the “Player” and “Team” classes. Each class retains a separate function by abiding by the single responsibility principle, with “Player” handling player information and “Team” managing team-related matters. Abstraction makes managing statistical data less complicated while encapsulation protects data integrity and provides controlled access to statistics. This method optimizes code readability and makes it easier for any future additions or revisions, giving player and team statistics management a solid base.
+However, a potential improvement to the current architecture would be to add a “Stats” class specifically for managing player and team statistics. This situation improves the organization, adaptability, and maintainability of the code by incorporating a “Stats” object into the “Player” and “Team” classes. Each class retains a separate function by abiding by the single responsibility principle, with “Player” handling player information and “Team” managing team-related matters. Abstraction makes managing statistical data less complicated, while encapsulation protects data integrity and provides controlled access to statistics. This method optimizes code readability and makes it easier for any future additions or revisions, giving player and team statistics management a solid base.
 
 This “Stats” class would look something like this:
 
@@ -69,7 +69,9 @@ goalsScored += goals;
 
 The created solution adheres to the object-oriented programming concepts and successfully simulates soccer players and teams. Testing revealed that the classes were appropriately implemented, and the fundamental features—adding players to teams, documenting game results, and displaying statistics—performed as intended.
 
-Future iterations should take into account a few potential issues and enhancements. For example, the system might be expanded to include more complex statistics, like player ratings or other team characteristics. In the future, it might be difficult to handle complex game circumstances such as player replacements during matches.
+However, future version should take into account a few potential issues and enhancements. For example, the system might be expanded to include more complex statistics, like player ratings or other team characteristics. In the future, it might be difficult to handle complex game circumstances such as player replacements during matches.
 
-Overall, the current solution offers a strong foundation for modeling soccer teams and players in an object-oriented way, but additional improvements and refinements can be investigated depending on particular use cases and requirements.
+An issue that we ran into when writing the code was that we did not know how to create linked lists and implementing them. But, with a short research, we found out how to import the required libraries and manged to used them perfectly on our program.
+
+Overall, the current code is a simplistic way of implementing different objects in java that allow us to learn the basic to further our knowledge on the following labs.
 
