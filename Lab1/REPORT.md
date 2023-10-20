@@ -18,7 +18,7 @@ Country Class: This class represents the nationality of players and teams. It co
 
 
 
-**2- ALTERNATIVE **
+**2- ALTERNATIVE**
 
 In designing this system, we considered various alternatives, such as using arrays instead of linked lists, utilizing inheritance for player types, and employing more complex class relationships. However, the chosen solution adheres to basic object-oriented programming principles and simplicity.
 The chosen solution employs a basic class structure with composition, encapsulation, and appropriate methods to manage the relationships between players, teams, and countries. The theoretical concepts applied in this solution include:
