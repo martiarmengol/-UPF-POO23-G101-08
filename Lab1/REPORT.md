@@ -1,4 +1,4 @@
-# _**1- INTRODUCTION: PROGRAM DESCRIPTION**_
+## _**1- INTRODUCTION: PROGRAM DESCRIPTION**_
 
 The primary goal of the program is to model soccer players, soccer teams, and their associated data, such as player statistics and team statistics. The program must support the following functionalities:
 1. _Player Class:_ This class is designed to represent individual soccer players. It should store player-specific information such as gender, name, age, nationality, and various statistics related to their performance in matches (matches played, tackles, passes, shots, assists, and goals scored).
@@ -18,7 +18,7 @@ _Country Class:_ This class represents the nationality of players and teams. It 
 
 
 
-_**2- ALTERNATIVE**_
+## _**2- ALTERNATIVE**_
 
 In designing this system, we considered various alternatives, such as using arrays instead of linked lists, utilizing inheritance for player types, and employing more complex class relationships. However, the chosen solution adheres to basic object-oriented programming principles and simplicity.
 The chosen solution employs a basic class structure with composition, encapsulation, and appropriate methods to manage the relationships between players, teams, and countries. The theoretical concepts applied in this solution include:  
@@ -63,7 +63,7 @@ goalsScored += goals;
 }
 ```
 
-_**3- CONCLUSION**_
+## _**3- CONCLUSION**_
 
 The created solution adheres to the object-oriented programming concepts and successfully simulates soccer players and teams. Testing revealed that the classes were appropriately implemented, and the fundamental features—adding players to teams, documenting game results, and displaying statistics—performed as intended.
 
