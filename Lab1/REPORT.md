@@ -1,11 +1,11 @@
 _**1- INTRODUCTION: PROGRAM DESCRIPTION**_
 
 The primary goal of the program is to model soccer players, soccer teams, and their associated data, such as player statistics and team statistics. The program must support the following functionalities:
-+ _Player Class:_ This class is designed to represent individual soccer players. It should store player-specific information such as gender, name, age, nationality, and various statistics related to their performance in matches (matches played, tackles, passes, shots, assists, and goals scored).
- Methods to implement:
-  **isFemale():** Determine if the player is female.
-+ **update(int t, int p, int s, int a, int g):** Update the player's statistics.
-+ **printStats():** Print the player's statistics.
+_Player Class:_ This class is designed to represent individual soccer players. It should store player-specific information such as gender, name, age, nationality, and various statistics related to their performance in matches (matches played, tackles, passes, shots, assists, and goals scored).
+     Methods to implement:
+          **isFemale():** Determine if the player is female.
+          **update(int t, int p, int s, int a, int g):** Update the player's statistics.
+          **printStats():** Print the player's statistics.
 _Team Class:_ This class represents soccer teams and their attributes. A team has a name, a country of origin, a gender (male, female, or mixed), and various statistics, including the number of matches played, wins, ties, losses, goals scored, and goals against. The class should also maintain a list of players that belong to the team.
 Methods to implement:
 + **addPlayer(Player p):** Add a player to the team.
