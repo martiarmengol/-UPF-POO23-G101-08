@@ -17,10 +17,8 @@ Methods to implement:
 + **printStats():** Print the team's statistics.
 ### _Country Class:_ 
 This class represents the nationality of players and teams. It contains the name of the country.
-
-
-
-
+### _Gender enum:_
+In order to have avaiable all possible genders for the teams, we created a "Gender" enum that has all poible team genders (MALE,FEMALE,MIXED).
 
 ## _**2- ALTERNATIVE**_
 
