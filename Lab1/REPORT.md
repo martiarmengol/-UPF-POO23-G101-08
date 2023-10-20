@@ -31,7 +31,7 @@ A potential improvement to the current architecture would be to add a “Stats�
 This “Stats” class would look something like this:
 
 ```
-_//Atributes_
+//Atributes
 private int noMatches; 
 private int noWins; 
 private int noTies; 
@@ -39,7 +39,7 @@ private int noLosses;
 private int goalsScored; 
 private int goalsAgainst;
 
-_//Methods (Examples)_
+//Methods (Examples)
 
 public Stats() { 
     noMatches = 0; 
