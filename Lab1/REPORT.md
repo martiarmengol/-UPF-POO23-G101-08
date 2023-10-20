@@ -1,3 +1,4 @@
+# LAB 1 REPORT
 ## _**1- INTRODUCTION: PROGRAM DESCRIPTION**_
 
 The primary goal of the program is to model soccer players, soccer teams, and their associated data, such as player statistics and team statistics. The program must support the following functionalities:
