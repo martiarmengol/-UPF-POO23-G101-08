@@ -30,7 +30,7 @@ A potential improvement to the current architecture would be to add a “Stats�
 
 This “Stats” class would look something like this:
 
-'''
+```
 _//Atributes_
 private int noMatches; 
 private int noWins; 
@@ -57,7 +57,7 @@ noMatches++;
 public void incrementGoalsScored(int goals) { 
 goalsScored += goals; 
 }
-'''
+```
 
 _**3- CONCLUSION**_
 The created solution adheres to the object-oriented programming concepts and successfully simulates soccer players and teams. Testing revealed that the classes were appropriately implemented, and the fundamental features—adding players to teams, documenting game results, and displaying statistics—performed as intended.
