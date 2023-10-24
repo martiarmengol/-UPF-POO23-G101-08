@@ -41,6 +41,8 @@ public class Match {
         for(int i=0;i<awayGoals;i++){
             int indexAway = random.nextInt(awayTeam.playerList.size());
             awayScorers.add(awayTeam.playerList.get(indexAway));
+            int g = awayTeam.playerList.get(indexAway).getGoals();
+            awayTeam.playerList.get(indexAway).update_goals(g+1);
         }
 
     }
