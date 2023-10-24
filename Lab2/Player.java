@@ -41,8 +41,8 @@ public class Player {
         return goals;
     }
 
-    public void update_goals(int newgoals){
-        goals = newgoals;
+    public void update_goals(int g){
+        goals = g;
     }
 
     public void update(Match m){
