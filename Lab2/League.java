@@ -6,8 +6,8 @@ public class League{
     private String name;
     private Country country;
     private Gender gender;
-    LinkedList<Team> teams = new LinkedList<>();
-    LinkedList<Match> matches = new LinkedList<>();
+    private LinkedList<Team> teams = new LinkedList<>();
+    private LinkedList<Match> matches = new LinkedList<>();
 
     public League(String n,Country c,Gender g){
         name = n;
@@ -27,6 +27,10 @@ public class League{
         return gender;
     }
 
+    public LinkedList<Team> getTeams() {
+        return teams;
+    }
+
     public void addTeam(Team t){
         teams.add(t);
     }
@@ -44,17 +48,19 @@ public class League{
 
     public void simulateMatches(){
         for (Match match : matches) {
-            match.simulateMatch(); // Simulate the match
+            match.simulateMatch(); 
             match.getHomeTeam().updateStats(match);
             match.getAwayTeam().updateStats(match);
         }
     }
 
     public void printMatches(){
-
+        for (Match match : matches) {
+            match.printMatch(); 
+        }
     }
 
     public void printGoalScorers(int k){
-
+        
     }
 }
