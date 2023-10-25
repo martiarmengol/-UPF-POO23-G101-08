@@ -1,7 +1,7 @@
 package Lab2;
 
 public class Player {
-    private boolean female;
+    private boolean gender;
     private String name;
     private int age;
     private Country nationality;
@@ -10,17 +10,17 @@ public class Player {
     private int noPasses;
     private int noShots;
     private int noAssists;
-    private int goals;
+    private int noGoals;
     
     public Player(boolean g, String n, int a, Country nat) {
-        female = g;
+        gender = g;
         name = n;
         age = a;
         nationality = nat;
     }
 
     public boolean isFemale (){
-        if(female==true){
+        if(gender==true){
             return true;
         }else return false;
     }
@@ -38,14 +38,20 @@ public class Player {
     }
 
     public int getGoals(){
-        return goals;
+        return noGoals;
     }
 
     public void update_goals(int g){
-        goals = g;
+        noGoals = g;
     }
 
-    public void update(Match m){
-
+    public void update(Match m) {
+        int homeGoals = m.getHomeGoals();
+        int awayGoals = m.getAwayGoals();
+        
+        // Update player statistics based on the match
+        this.noGoals += m.getHomeScorers().contains(this) ? homeGoals : awayGoals;
+        
+        // You can similarly update other statistics like tackles, passes, shots, and assists here.
     }
 }
