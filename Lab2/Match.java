@@ -62,12 +62,19 @@ public class Match {
 
     }
 
-    public void printMatch(){
-        System.out.println(homeTeam);
-        System.out.println(awayTeam);
-        System.out.println(awayGoals);
-        System.out.println(homeGoals);
-        System.out.println(homeScorers);
-        System.out.println(awayScorers);
+    public void printMatch() {
+        System.out.println("Match between " + homeTeam.getName() + " and " + awayTeam.getName());
+        System.out.println("Final Score: " + homeGoals + " - " + awayGoals);
+        
+        System.out.println("Home Team Scorers:");
+        for (Player scorer : homeScorers) {
+            System.out.println(scorer.getName());
+        }
+        
+        System.out.println("Away Team Scorers:");
+        for (Player scorer : awayScorers) {
+            System.out.println(scorer.getName());
+        }
     }
+    
 }
