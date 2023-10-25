@@ -1,6 +1,7 @@
 package Lab2;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Team {
     private String name;
@@ -33,12 +34,7 @@ public class Team {
     }
 
     public void addPlayer(Player p){
-        /*if((p.isFemale()==true && (gender == Gender.FEMALE || gender == Gender.MIXED) ) || (p.isFemale()==false && (gender == Gender.MALE || gender == Gender.MIXED))){
-            playerList.add(p);
-        }*/
-        
         playerList.add(p);
-        //System.out.println("The gender of the player and the Team do not match");
     }
 
     public void removePlayer(Player p){
@@ -60,14 +56,15 @@ public class Team {
 
     public void updateStats(Match match) {
         for (Player player : getPlayers()) {
-            int goalsScoredByPlayer = match.getHomeScorers() .contains(player)
-                    ? match.getHomeScorers().size()
-                    : match.getHomeScorers().size();
-                    
-
-            player.update_goals(goalsScoredByPlayer);
+            int goalsScoredByPlayer = match.getHomeScorers().contains(player)
+                ? match.getHomeScorers().size()
+                : match.getAwayScorers().size();
+    
+            player.update(match); // Update player's stats based on the match
         }
     }
+    
+
 
     public void printStats(){
         System.out.println("Matches:"+noMatches);
