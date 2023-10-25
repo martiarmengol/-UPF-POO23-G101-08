@@ -55,7 +55,6 @@ public class App {
         league.printMatches();
 
         // Print team statistics
-        System.out.println("Nigger");
         for (Team team : league.getTeams()) {
             team.printStats();
         }
