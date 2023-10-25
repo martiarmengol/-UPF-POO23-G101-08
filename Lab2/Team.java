@@ -12,8 +12,7 @@ public class Team {
     private int noLosses;
     private int goalsScored;
     private int goalsAgainst;
-    
-    LinkedList<Player> playerList = new LinkedList<>();
+    private LinkedList<Player> playerList = new LinkedList<>();
 
     public Team(String n, Country c, Gender g) {
         name = n;
@@ -34,14 +33,20 @@ public class Team {
     }
 
     public void addPlayer(Player p){
-        if((p.isFemale()==true && (gender == Gender.FEMALE || gender == Gender.MIXED) ) || (p.isFemale()==false && (gender == Gender.MALE || gender == Gender.MIXED))){
+        /*if((p.isFemale()==true && (gender == Gender.FEMALE || gender == Gender.MIXED) ) || (p.isFemale()==false && (gender == Gender.MALE || gender == Gender.MIXED))){
             playerList.add(p);
-        }
-        System.out.println("The gender of the player and the Team do not match");
+        }*/
+        
+        playerList.add(p);
+        //System.out.println("The gender of the player and the Team do not match");
     }
 
     public void removePlayer(Player p){
         playerList.remove(p);
+    }
+
+    public LinkedList<Player> getPlayers() {
+        return playerList;
     }
 
     public void playMatch (int pro, int against){
@@ -51,6 +56,17 @@ public class Team {
         noMatches++;
         goalsScored += pro;
         goalsAgainst +=against;
+    }
+
+    public void updateStats(Match match) {
+        for (Player player : getPlayers()) {
+            int goalsScoredByPlayer = match.getHomeScorers() .contains(player)
+                    ? match.getHomeScorers().size()
+                    : match.getHomeScorers().size();
+                    
+
+            player.update_goals(goalsScoredByPlayer);
+        }
     }
 
     public void printStats(){
