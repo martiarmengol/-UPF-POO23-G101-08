@@ -7,7 +7,7 @@ public class App {
         Country countryC = new Country("Italy");
         Country countryD = new Country("France");
         Country countryE = new Country("Portugal");
-        // Create a league
+    
         League league = new League("Sample League", countryA, Gender.MIXED);
 
         
@@ -17,7 +17,7 @@ public class App {
         Team team4 = new Team("Team D", countryD, Gender.FEMALE);
         Team team5 = new Team("Team E", countryE, Gender.MALE);
 
-        String[] playerNames = { "Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8", "Player 9", "Player 10" };
+        String[] playerNames = { "Marti", "Sergi", "Joan", "Adry", "Jofre", "Guillem", "Jordi", "Rita", "Eli", "Georgina" };
         int[] playerAges = { 25, 23, 27, 22, 24, 26, 28, 29, 30, 21 };
         Gender[] playerGenders = { Gender.MALE, Gender.FEMALE, Gender.MALE, Gender.FEMALE, Gender.MIXED, Gender.MIXED, Gender.MIXED, Gender.FEMALE, Gender.MALE, Gender.MIXED };
 
@@ -52,13 +52,14 @@ public class App {
         league.simulateMatches();
 
         // Print match details
+        System.out.println(">>>>>>>>>>START OF THE LEAGUE<<<<<<<<<<");
+        System.out.println(" ");
         league.printMatches();
 
         // Print team statistics
         for (Team team : league.getTeams()) {
             team.printStats();
         }
-
         
     }
 }
