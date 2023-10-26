@@ -1,7 +1,6 @@
 package Lab2;
 
 import java.util.LinkedList;
-import java.util.Random;
 
 public class Team {
     private String name;
@@ -60,18 +59,37 @@ public class Team {
                 ? match.getHomeScorers().size()
                 : match.getAwayScorers().size();
     
-            player.update(match); // Update player's stats based on the match
+            player.update_goals(player.getGoals() + goalsScoredByPlayer);
         }
+
+        int homeGoals = match.getHomeGoals();
+        int awayGoals = match.getAwayGoals();
+
+        if (homeGoals > awayGoals) {
+            noWins++;
+        } else if (homeGoals < awayGoals) {
+            noLosses++;
+        } else {
+            noTies++;
+        }
+
+        goalsScored += homeGoals;
+        goalsAgainst += awayGoals;
+
+        noMatches++;
     }
     
 
 
     public void printStats(){
+        System.out.println(" ");
+        System.out.println("Team:"+name+" stats");
         System.out.println("Matches:"+noMatches);
-        System.out.println("Wins"+noWins);
+        System.out.println("Wins:"+noWins);
         System.out.println("Losses:"+noLosses);
         System.out.println("Tie:"+noTies);
         System.out.println("Against:"+goalsAgainst);
-        System.out.println("Goals Scored"+goalsScored);
+        System.out.println("Goals Scored:"+goalsScored);
+        System.out.println(" ");
     }
 }
