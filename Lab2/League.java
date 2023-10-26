@@ -48,9 +48,10 @@ public class League{
 
     public void simulateMatches(){
         for (Match match : matches) {
-            match.simulateMatch(); 
-            match.getHomeTeam().updateStats(match);
-            match.getAwayTeam().updateStats(match);
+            match.simulateMatch();
+            
+            match.getHomeTeam().updateStats(match); 
+            match.getAwayTeam().updateStats(match); 
         }
     }
 
