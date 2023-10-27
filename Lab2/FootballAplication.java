@@ -57,6 +57,7 @@ public class FootballAplication {
         league.printMatches();
 
         // Print team statistics
+        System.out.println(">>>>>>>>>>TEAM STATS<<<<<<<<<<");
         for (Team team : league.getTeams()) {
             team.printStats();
         }
