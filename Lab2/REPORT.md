@@ -34,3 +34,10 @@ Use of the FootballApplication class to test all the classes and ensure that the
 ## DESCRIPTION OF ALTERNATIVE
 
 ## CONCLUSION
+The current program is more extended and now we are able to simulate an entire league with different teams from the same country and players that share gender. Notice that now there are a infinite details that we can add to expand and improve this project. 
+
+We could focus on players stats and not only record the goalscorers but also the players with more assists, tackles, saves(goalkeepers) and a lot more. There is also the possibility to improve the stats leaderboards and filter the stats by position (e.g. defenders with more goals). Also we could focus more in analyzing every team result from previous games to generate a expected result of a  match before it is even played, and we could also use this system to not just randomize every result, but to simulate the matches giving more probability to win the better team. This are some examples of how this project could be expanded.
+
+The main issue we had working on this second lab was the implemenation of the method simulateMatch from the Match class because we didn't know how to record the goalscorers of the match and add them in the general goalscorers of each team. 
+
+Overall, the current code is more complex but there is more work to do and as said before we could focus on different details to imporve the project quality.
