@@ -27,7 +27,8 @@ Methods implemented:
 + **simulateMatches():** Simulates a match and updates the stats.
 + **printMatches():** Prints the result of the matches that have been simulated.
 
-### League Class:_ 
+### Main Method:_ 
+Use of the FootballApplication class to test all the classes and ensure that they work correctly and compiles. For example we can define some countries, teams and players and simulate matches to see if the classes methods correctly work.
 
 
 ## DESCRIPTION OF ALTERNATIVE
