@@ -32,6 +32,38 @@ Use of the FootballApplication class to test all the classes and ensure that the
 
 
 ## DESCRIPTION OF ALTERNATIVE
+In the designign of the second lab we had diverse ideas on how to approach the code, concretely in the desing of the match class. We were not sure on how to develop the method simulateMatch, and therefore our first idea consisted in giving a list of the possible goalcorers and posssible mach results and then randomizing what happened choosing between the given outcomes. Instead of having everythin in one method, it is divided in 2. This is how it would look like:
+
+```
+public void simulateMatch() {
+    
+    int[] possibleScores = {0, 1, 2, 3, 4, 5};
+
+    
+    int homeGoals = possibleScores[new Random().nextInt(possibleScores.length)];
+
+    
+    int awayGoals = possibleScores[new Random().nextInt(possibleScores.length)];
+
+    simulateScorers(homeGoals, homeTeam, homeScorers);
+    simulateScorers(awayGoals, awayTeam, awayScorers);
+
+    this.homeGoals = homeGoals;
+    this.awayGoals = awayGoals;
+}
+
+
+private void simulateScorers(int goals, Team team, LinkedList<Player> scorers) {
+    Random random = new Random();
+    for (int i = 0; i < goals; i++) {
+        int index = random.nextInt(team.getPlayers().size());
+        scorers.add(team.getPlayers().get(index));
+    }
+}
+
+```
+
+
 
 ## CONCLUSION
 The current program is more extended and now we are able to simulate an entire league with different teams from the same country and players that share gender. Notice that now there are a infinite details that we can add to expand and improve this project. 
