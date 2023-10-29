@@ -11,9 +11,21 @@ This class represents a soccer match between two teams. The atributtes of this c
 + **getHomeScorers():** Get linked list of goalscorers of home team.
 + **getAwayScorers():** Get linked list of goalscorers of away team.
 + **simulateMatch():** Simulates a match between two teams with a random number of goals and goalscorers.
-+ **printMatch():** Prints the result of the match and the name of the goalscorers.
++ **printMatch():** Prints the result of the match and the names of the goalscorers.
   
+### League Class:_ 
+This class represents a soccer league with diverse atributtes: league name, country, gender and two lists, one of the teams and another of the matches.
+Methods implemented:
 
++ **League(String n,Country c,Gender g):** Constructor.
++ **getName():** Get name of the league.
++ **getCountry():** Get country of the league.
++ **getGender():** Get gender of the players of the league.
++ **getTeams():** Return linked list of the teams of the league.
++ **addTeam(Team t):** Add team to the league.
++ **generateMatches():** Create random match beween two different teams of the league.
++ **simulateMatches():** Simulates a match and updates the stats.
++ **printMatches():** Prints the result of the matches that have been simulated.
 
 ### League Class:_ 
 
