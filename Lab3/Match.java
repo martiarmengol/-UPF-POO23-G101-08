@@ -45,22 +45,32 @@ public class Match {
     
         // Simulate the match
         int homeGoals = random.nextInt(6);  
-        int awayGoals = random.nextInt(6);  
-        
+        int awayGoals = random.nextInt(6);
+        int homeSaves = random.nextInt(10)-awayGoals;  
+        int awaySaves = random.nextInt(10)-homeGoals;
+
 
         for (int i = 0; i < homeGoals; i++) {
             int indexHome = random.nextInt(homeTeam.getPlayers().size());
-            homeScorers.add(homeTeam.getPlayers().get(indexHome));
+            if((homeTeam.getPlayers().get(indexHome) instanceof OutFielder) == true){
+                homeScorers.add(homeTeam.getPlayers().get(indexHome));
+            }else{
+                i--;
+            }
+            
         }
 
-        for (int i = 0; i < awayGoals; i++) {
+        for (int i = 0; i < homeGoals; i++) {
             int indexAway = random.nextInt(awayTeam.getPlayers().size());
-            awayScorers.add(awayTeam.getPlayers().get(indexAway));
+            if((awayTeam.getPlayers().get(indexAway) instanceof OutFielder) == true){
+                awayScorers.add(awayTeam.getPlayers().get(indexAway));
+            }else{
+                i--;
+            }
         }
 
         this.homeGoals = homeGoals;
         this.awayGoals = awayGoals;
-
     }
 
     public void printMatch() {

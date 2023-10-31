@@ -1,6 +1,7 @@
 package Lab3;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Team {
     protected String name;
@@ -58,7 +59,11 @@ public class Team {
             int goalsScoredByPlayer = match.getHomeScorers().contains(player)
                 ? match.getHomeScorers().size()
                 : match.getAwayScorers().size();
-    
+            
+            if((player instanceof OutFielder)== true){
+                Random random = new Random();
+                player.update(match);
+            }
             player.update_goalsz(player.getGoals() + goalsScoredByPlayer);
         }
 
