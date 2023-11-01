@@ -44,8 +44,9 @@ public class Match {
         Random random = new Random();
     
         // Simulate the match
-        int homeGoals = random.nextInt(6);  
-        int awayGoals = random.nextInt(6);
+        int homeGoals = random.nextInt(6) + 1;  // Add 1 to ensure a positive value
+        int awayGoals = random.nextInt(6) + 1;  // Add 1 to ensure a positive value
+
 
 
         for (int i = 0; i < homeGoals; i++) {

@@ -11,8 +11,4 @@ public class Country {
         return name;
     }
     
-    public boolean equal(Object o){
-        return true;
-        
-    }
 }

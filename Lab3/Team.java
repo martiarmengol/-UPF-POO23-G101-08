@@ -56,22 +56,16 @@ public class Team {
 
     public void updateStats(Match match) {
         for (Player player : getPlayers()) {
-            int goalsScoredByPlayer = match.getHomeScorers().contains(player)
-                ? match.getHomeScorers().size()
-                : match.getAwayScorers().size();
-            
-            if(player instanceof OutFielder){
-                ((OutFielder) player).updateStats(match);
-            }else if(player instanceof GoalKeeper){
-                ((GoalKeeper) player).updateStats(match);
+            // Check if the player is an instance of OutFielder before casting
+            if (player instanceof OutFielder) {
+                OutFielder outFielder = (OutFielder) player;
+                outFielder.updateStats(match);
             }
-            OutFielder op = (OutFielder) player;
-            op.updateGoals(op.getGoals() + goalsScoredByPlayer);
         }
-
+    
         int homeGoals = match.getHomeGoals();
         int awayGoals = match.getAwayGoals();
-
+    
         if (homeGoals > awayGoals) {
             noWins++;
         } else if (homeGoals < awayGoals) {
@@ -79,12 +73,13 @@ public class Team {
         } else {
             noTies++;
         }
-
+    
         goalsScored += homeGoals;
         goalsAgainst += awayGoals;
-
+    
         noMatches++;
     }
+    
     
 
 

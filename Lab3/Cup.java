@@ -7,76 +7,85 @@ import java.util.Random;
 
 public class Cup extends Competition {
     Random random = new Random();
-    private ArrayList<Team>[] tr;
-    private ArrayList<Match>[] mr;
+    private ArrayList<ArrayList<Team>> tr;
+    private ArrayList<ArrayList<CupMatch>> mr;
 
-    public Cup(boolean s,String n, Country c,Gender g ){
-        super(s,n,c,g);
+    public Cup(boolean s, String n, Country c, Gender g) {
+        super(s, n, c, g);
 
-        tr = new ArrayList[1];
-        mr = new ArrayList[1];
+        int numRounds = (int) Math.ceil(Math.log(teams.size()) / Math.log(2));
+        tr = new ArrayList<>();
+        mr = new ArrayList<>();
+
+        for (int i = 0; i < numRounds; i++) {
+            tr.add(new ArrayList<>());
+            mr.add(new ArrayList<>());
+        }
     }
 
     public void generateMatches() {
         ArrayList<Team> initialTeams = new ArrayList<>(teams);
-        Collections.shuffle(initialTeams); // Randomize the teams
-
-        tr[0] = new ArrayList<>(initialTeams);
-        mr[0] = new ArrayList<>();
-
+        Collections.shuffle(initialTeams);
+    
+        tr.add(new ArrayList<>(initialTeams));
+        mr.add(new ArrayList<>());
+    
         int round = 0;
-
-        while (tr[round].size() > 1) {
-            int numMatches = tr[round].size() / 2;
-            tr[round + 1] = new ArrayList<>();
-            mr[round + 1] = new ArrayList<>();
-
+    
+        while (tr.get(round).size() > 1) {
+            int numMatches = tr.get(round).size() / 2;
+            tr.add(new ArrayList<>());
+            mr.add(new ArrayList<>());
+    
             for (int i = 0; i < numMatches; i++) {
-                Team homeTeam = tr[round].get(i);
-                Team awayTeam = tr[round].get(i + numMatches);
-                Match match = new Match(homeTeam, awayTeam);
-                mr[round + 1].add(match);
-
-                // Simulate the match
-                match.simulateMatch();
-
-                // Determine the winner
-                if (match.getHomeGoals() > match.getAwayGoals()) {
-                    tr[round + 1].add(homeTeam);
-                } else {
-                    tr[round + 1].add(awayTeam);
+                Team homeTeam = tr.get(round).get(i);
+                Team awayTeam = tr.get(round).get(i + numMatches);
+    
+                if (homeTeam != null && awayTeam != null) {
+                    CupMatch match = new CupMatch(homeTeam, awayTeam);
+                    mr.get(round + 1).add(match);
+    
+                    if (match.getHomeGoals() > match.getAwayGoals()) {
+                        // Only add the home team if it wins.
+                        tr.get(round + 1).add(homeTeam);
+                    } else {
+                        // Add the away team if it wins or ties.
+                        tr.get(round + 1).add(awayTeam);
+                    }
                 }
             }
-
+    
             round++;
         }
     }
+    
 
-    public void simulateMatches(){
-        for (ArrayList<Match> roundMatches : mr) {
-            if (roundMatches != null) {
-                for (Match match : roundMatches) {
-                    match.simulateMatch();
-                    match.getHomeTeam().updateStats(match);
-                    match.getAwayTeam().updateStats(match);
-                }
+    public void simulateMatches() {
+        for (ArrayList<CupMatch> roundMatches : mr) {
+            for (CupMatch match : roundMatches) {
+                match.simulateMatch();
+                match.getHomeTeam().updateStats(match);
+                match.getAwayTeam().updateStats(match);
             }
         }
     }
 
-    public void printBraket(){
-        for (int round = 0; round < tr.length; round++) {
+    public void printBracket() {
+        for (int round = 0; round < tr.size(); round++) {
             System.out.println("Round " + (round + 1) + " Matches:");
-            ArrayList<Match> roundMatches = mr[round];
+            ArrayList<CupMatch> roundMatches = mr.get(round);
             if (roundMatches != null) {
-                for (Match match : roundMatches) {
+                for (CupMatch match : roundMatches) {
                     System.out.println(match.getHomeTeam().getName() + " vs " + match.getAwayTeam().getName());
                 }
             }
             System.out.println();
         }
 
-        System.out.println("Cup Winner: " + tr[tr.length - 1].get(0).getName());
+        System.out.println("Cup Winner: " + tr.get(tr.size() - 1).get(0).getName());
     }
     
+    
 }
+
+
