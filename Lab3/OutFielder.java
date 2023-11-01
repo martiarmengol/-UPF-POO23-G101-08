@@ -13,6 +13,14 @@ public class OutFielder extends Player {
         super(g,n,a,nat);
     }
 
+    public int getGoals(){
+        return noGoals;
+    }
+
+    public void updateGoals(int goalsScored) {
+        noGoals += goalsScored;
+    }
+
     public void updateStats(Match m){
         Random random = new Random();
     

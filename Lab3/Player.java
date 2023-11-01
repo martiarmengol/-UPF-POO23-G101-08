@@ -35,10 +35,7 @@ public class Player {
     }
 
     public void update(Match m) {
-        
-        int goalsScoredByPlayer = m.getHomeScorers().contains()
-                ? m.getHomeScorers().size()
-                : m.getAwayScorers().size();
+
     }
     
 }

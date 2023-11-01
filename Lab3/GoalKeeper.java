@@ -15,12 +15,11 @@ public class GoalKeeper extends Player {
         Player p = (Player) this;
 
         if (m.homeTeam.getPlayers().contains(p)) {
-            noSaves = 
+            this.noSaves += random.nextInt(10)-m.awayGoals;
+            this.goalsLet += m.awayGoals;
         } else if (m.awayTeam.getPlayers().contains(p)) {
-            System.out.println(p.getName() + " is on the away team.");
+            this.noSaves += random.nextInt(10)-m.homeGoals;
+            this.goalsLet += m.homeGoals;
         }
-        
-        this.noSaves = random.nextInt(6);   
-        this.goalsLet = random.nextInt(6);
     }
 }

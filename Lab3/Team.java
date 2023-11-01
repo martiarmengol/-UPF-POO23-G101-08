@@ -60,11 +60,13 @@ public class Team {
                 ? match.getHomeScorers().size()
                 : match.getAwayScorers().size();
             
-            if((player instanceof OutFielder)== true){
-                Random random = new Random();
-                player.update(match);
+            if(player instanceof OutFielder){
+                ((OutFielder) player).updateStats(match);
+            }else if(player instanceof GoalKeeper){
+                ((GoalKeeper) player).updateStats(match);
             }
-            player.update_goalsz(player.getGoals() + goalsScoredByPlayer);
+            OutFielder op = (OutFielder) player;
+            op.updateGoals(op.getGoals() + goalsScoredByPlayer);
         }
 
         int homeGoals = match.getHomeGoals();

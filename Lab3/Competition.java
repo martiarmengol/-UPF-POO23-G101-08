@@ -28,7 +28,6 @@ public class Competition {
         
     }
 
-
     public void generateMatches(){
         
     }

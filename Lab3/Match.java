@@ -46,8 +46,6 @@ public class Match {
         // Simulate the match
         int homeGoals = random.nextInt(6);  
         int awayGoals = random.nextInt(6);
-        int homeSaves = random.nextInt(10)-awayGoals;  
-        int awaySaves = random.nextInt(10)-homeGoals;
 
 
         for (int i = 0; i < homeGoals; i++) {
