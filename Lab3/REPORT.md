@@ -1,4 +1,4 @@
-INTRODUCTION
+#INTRODUCTION
 The goal of this third lab is to add new classes that are useful to distinguish between types of matches, players, teams and competitions that were classes defined in the other labs. First, we are going to modify the players class and add goalkeeper and outfielder classes and instead of league we are going to define competition and add three types, league, cup and group play. Finally new classes national team and cup match will be also implemented. Notice that all these new classes are going to inherit attributes and methods from the already defined classes.
 Players Class:_
 This class was already defined, but now since we want to distinguish goalkeepers and outfielders, we there is a modification of attributes, which now are:  gender, name, age, nationality and number of matches. Methods implemented:
