@@ -26,5 +26,6 @@ public class GroupPlayMain {
         
         // Simulate matches within each group
         groupPlay.simulateMatches();
+        groupPlay.printMatches();
     }
 }

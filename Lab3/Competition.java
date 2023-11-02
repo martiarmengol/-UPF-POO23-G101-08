@@ -17,6 +17,11 @@ public class Competition {
         gender = g;
     }
 
+    public LinkedList<Team> getTeams(){
+        return teams;
+        
+    }
+
     public void addTeam(Team t){
         if(clubs == true && (t instanceof NationalTeam) == false){
             teams.add(t);
@@ -42,6 +47,7 @@ public class Competition {
     }
 
     public void printMatches(){
+    
         for (Match match : matches) {
             match.printMatch(); 
         }

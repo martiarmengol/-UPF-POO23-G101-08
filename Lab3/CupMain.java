@@ -12,46 +12,73 @@ public class CupMain {
         Team team2 = new Team("Madrid", countryB, Gender.FEMALE);
         Team team3 = new Team("Atletico", countryC, Gender.MALE);
         Team team4 = new Team("Valencia", countryD, Gender.FEMALE);
+        Team team5 = new Team("Rayo", countryA, Gender.MALE);
+        Team team6 = new Team("Juevntus", countryB, Gender.FEMALE);
+        Team team7 = new Team("Bayern", countryC, Gender.MALE);
+        Team team8 = new Team("Elche", countryD, Gender.FEMALE);
 
         String[] playerNames = { "Marti", "Sergi", "Joan", "Adry", "Jofre", "Guillem", "Jordi", "Rita", "Eli", "Georgina" };
         int[] playerAges = { 25, 23, 27, 22, 24, 26, 28, 29, 30, 21 };
         Gender[] playerGenders = { Gender.MALE, Gender.FEMALE, Gender.MALE, Gender.FEMALE, Gender.MIXED, Gender.MIXED, Gender.MIXED, Gender.FEMALE, Gender.MALE, Gender.MIXED };
 
         for (int i = 0; i < playerNames.length; i++) {
-            Player player = new Player(playerGenders[i], playerNames[i], playerAges[i], i % 5 == 0 ? countryA
-                    : (i % 5 == 1 ? countryB : (i % 5 == 2 ? countryC : (i % 5 == 3 ? countryD : countryE))));
-
-            if (i % 5 == 0) {
+            Player player = new Player(playerGenders[i], playerNames[i], playerAges[i], i % 8 == 0 ? countryA
+                    : (i % 8 == 1 ? countryB : (i % 8 == 2 ? countryC : (i % 8 == 3 ? countryD
+                            : (i % 8 == 4 ? countryE : (i % 8 == 5 ? countryA : (i % 8 == 6 ? countryB : countryC)))))));
+        
+            if (i % 8 == 0) {
                 team1.addPlayer(player);
-            } else if (i % 5 == 1) {
+            } else if (i % 8 == 1) {
                 team2.addPlayer(player);
-            } else if (i % 5 == 2) {
+            } else if (i % 8 == 2) {
                 team3.addPlayer(player);
-            } else if (i % 5 == 3) {
+            } else if (i % 8 == 3) {
                 team4.addPlayer(player);
+            } else if (i % 8 == 4) {
+                team5.addPlayer(player);
+            } else if (i % 8 == 5) {
+                team6.addPlayer(player);
+            } else if (i % 8 == 6) {
+                team7.addPlayer(player);
+            } else if (i % 8 == 7) {
+                team8.addPlayer(player);
             }
         }
+        
 
         GoalKeeper goalie1 = new GoalKeeper(Gender.MALE, "Albert", 28, countryA);
         GoalKeeper goalie2 = new GoalKeeper(Gender.FEMALE, "Maria", 26, countryB);
         GoalKeeper goalie3 = new GoalKeeper(Gender.MALE, "Josep", 30, countryC);
         GoalKeeper goalie4 = new GoalKeeper(Gender.FEMALE, "Helena", 25, countryD);
+        GoalKeeper goalie5 = new GoalKeeper(Gender.MALE, "Pau", 28, countryA);
+        GoalKeeper goalie6 = new GoalKeeper(Gender.FEMALE, "Alex", 26, countryB);
+        GoalKeeper goalie7 = new GoalKeeper(Gender.MALE, "Pep", 30, countryC);
+        GoalKeeper goalie8 = new GoalKeeper(Gender.FEMALE, "Jan", 25, countryD);
 
         // Add Goalkeepers to Teams
         team1.addPlayer(goalie1);
         team2.addPlayer(goalie2);
         team3.addPlayer(goalie3);
         team4.addPlayer(goalie4);
+        team5.addPlayer(goalie5);
+        team6.addPlayer(goalie6);
+        team7.addPlayer(goalie7);
+        team8.addPlayer(goalie8);
 
         Cup cup = new Cup(true, "Cup Competition", new Country("Spain"), Gender.MALE);
         cup.addTeam(team1);
         cup.addTeam(team2);
         cup.addTeam(team3);
         cup.addTeam(team4);
+        cup.addTeam(team5);
+        cup.addTeam(team6);
+        cup.addTeam(team7);
+        cup.addTeam(team8);
 
         // Generate and simulate matches
         cup.generateMatches();
         cup.simulateMatches();
+        cup.printMatches();
 
         cup.printBracket();
         
