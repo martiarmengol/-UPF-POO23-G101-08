@@ -14,6 +14,10 @@ public class GroupPlay extends Competition {
         groups = new ArrayList<>();
     }
 
+    public void addGroup(League l){
+        groups.add(l);
+    }
+
     public void generateMatches(){
         for(League group : groups){
             group.generateMatches();
@@ -26,7 +30,17 @@ public class GroupPlay extends Competition {
         }
     }
 
-    public void printTables(){
+    public void printMatches() {
+        for (League group : groups) {
+            System.out.println("Matches for Group: " + group.getName());
+            group.printMatches();
+            System.out.println();
+        }
+    }
 
+    public void printTables() {
+        for (League group : groups) {
+            group.printTable();
+        }
     }
 }
