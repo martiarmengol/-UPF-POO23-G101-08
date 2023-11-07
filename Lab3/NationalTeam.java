@@ -9,7 +9,5 @@ public class NationalTeam extends Team{
         if(p.getNationality() == country){
             playerList.add(p);
         }
-        
-
     }
 }
