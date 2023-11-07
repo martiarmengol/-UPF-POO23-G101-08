@@ -2,7 +2,7 @@ package Lab3;
 
 import java.util.LinkedList;
 
-public class Competition {
+public abstract class Competition {
     protected boolean clubs;
     protected String name;
     protected Country country;
@@ -37,9 +37,7 @@ public class Competition {
         
     }
 
-    public void generateMatches(){
-        
-    }
+    public abstract void generateMatches();
 
     public void simulateMatches(){
         for (Match match : matches) {

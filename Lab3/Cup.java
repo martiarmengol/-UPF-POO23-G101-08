@@ -130,11 +130,6 @@ public class Cup extends Competition {
         }
     }
     
-    
-
-    
-    
-
     public void simulateMatches() {
         for (ArrayList<CupMatch> roundMatches : mr) {
             for (CupMatch match : roundMatches) {
@@ -146,17 +141,17 @@ public class Cup extends Competition {
     }
 
     public void printBracket() {
-        System.out.println("Round 1 Matches:");
+        /*System.out.println("Round 1 Matches:");
         ArrayList<CupMatch> roundMatches = mr.get(0);
         if (roundMatches != null) {
             for (CupMatch match : roundMatches) {
                 System.out.println(match.getHomeTeam().getName() + " vs " + match.getAwayTeam().getName());
             }
         }
-        System.out.println();
-    
+        System.out.println();*/
+        ArrayList<CupMatch> roundMatches = mr.get(0);
         for (int round = 1; round < tr.size(); round++) {
-            System.out.println("Round " + (round + 1) + " Matches:");
+            System.out.println("Round " + (round) + " Matches:");
             roundMatches = mr.get(round);
             if (roundMatches != null) {
                 for (CupMatch match : roundMatches) {

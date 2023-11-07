@@ -34,7 +34,7 @@ public class Player {
         return nationality;
     }
 
-    public void update(Match m) {
+    public void updateStats(Match m){
 
     }
     
