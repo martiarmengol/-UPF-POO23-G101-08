@@ -11,7 +11,7 @@ public class GroupPlay extends Competition {
 
     public GroupPlay(boolean s,String n, Country c, Gender g){
         super(s,n,c,g);
-        groups = new ArrayList<>();
+        //groups = new ArrayList<>();
     }
 
     public void addGroup(League l){

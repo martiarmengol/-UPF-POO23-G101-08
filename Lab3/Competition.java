@@ -29,10 +29,10 @@ public abstract class Competition {
     public void addTeam(Team t){
         if(clubs == true && (t instanceof NationalTeam) == false){
             teams.add(t);
-        }else{
-            if(t instanceof NationalTeam){
-                teams.add(t);
-            }
+        }else if (clubs == false && (t instanceof NationalTeam) == true){
+            teams.add(t);
+        }else if (clubs == true && (t instanceof NationalTeam) == false){
+            System.out.println("The competiton doesn't allow National Teams, only clubs.");
         }
         
     }

@@ -79,8 +79,16 @@ public class GroupPlayMain {
         // Create and add groups (instances of League) to the GroupPlay
         League groupA = new League(true, "Group A", new Country("Group A Country"), Gender.MALE);
         League groupB = new League(true, "Group B", new Country("Group B Country"), Gender.MALE);
+        for(int i=0;i<groupPlay.getTeams().size();i++){
+            if(i%2==0){
+                groupA.addTeam(groupPlay.getTeams().get(i));
+            }else if(i%2==1){
+                groupB.addTeam(groupPlay.getTeams().get(i));
+            }
+        }
         groupPlay.addGroup(groupA);
         groupPlay.addGroup(groupB);
+
 
         // Generate matches within each group
         groupPlay.generateMatches();
