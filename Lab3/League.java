@@ -16,9 +16,17 @@ public class League extends Competition {
         }
     }
 
-    public void printTable(){
-        
+    public void printTable() {
+        System.out.println("League Table for " + getName());
+        System.out.println("---------------------------------------------------------");
+        System.out.printf("%-20s %-10s %-10s %-10s %-10s%n", "Team", "Wins", "Losses", "Goals For", "Goals Against");
+        System.out.println("---------------------------------------------------------");
+        for (Team team : teams) {
+            System.out.printf("%-20s %-10d %-10d %-10d %-10d%n", team.getName(), team.getWins(), team.getLosses(), team.getGoalsScored(), team.getGoalsAgainst());
+        }
+        System.out.println("---------------------------------------------------------");
     }
+    
 
 
 }

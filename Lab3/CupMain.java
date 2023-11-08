@@ -9,17 +9,17 @@ public class CupMain {
         Country countryE = new Country("Portugal");
         
         Team team1 = new Team("Barça", countryA, Gender.MALE);
-        Team team2 = new Team("Madrid", countryB, Gender.FEMALE);
+        Team team2 = new Team("Madrid", countryB, Gender.MALE);
         Team team3 = new Team("Atletico", countryC, Gender.MALE);
-        Team team4 = new Team("Valencia", countryD, Gender.FEMALE);
+        Team team4 = new Team("Valencia", countryD, Gender.MALE);
         Team team5 = new Team("Rayo", countryA, Gender.MALE);
-        Team team6 = new Team("Juevntus", countryB, Gender.FEMALE);
+        Team team6 = new Team("Juevntus", countryB, Gender.MALE);
         Team team7 = new Team("Bayern", countryC, Gender.MALE);
-        Team team8 = new Team("Elche", countryD, Gender.FEMALE);
+        Team team8 = new Team("Elche", countryD, Gender.MALE);
 
         String[] playerNames = { "Marti", "Sergi", "Joan", "Adry", "Jofre", "Guillem", "Jordi", "Rita", "Eli", "Georgina" };
         int[] playerAges = { 25, 23, 27, 22, 24, 26, 28, 29, 30, 21 };
-        Gender[] playerGenders = { Gender.MALE, Gender.FEMALE, Gender.MALE, Gender.FEMALE, Gender.MIXED, Gender.MIXED, Gender.MIXED, Gender.FEMALE, Gender.MALE, Gender.MIXED };
+        Gender[] playerGenders = { Gender.MALE, Gender.MALE, Gender.MALE, Gender.MALE, Gender.MALE, Gender.MALE, Gender.MIXED, Gender.MALE, Gender.MALE, Gender.MALE };
 
         for (int i = 0; i < playerNames.length; i++) {
             Player player = new Player(playerGenders[i], playerNames[i], playerAges[i], i % 8 == 0 ? countryA
@@ -47,13 +47,13 @@ public class CupMain {
         
 
         GoalKeeper goalie1 = new GoalKeeper(Gender.MALE, "Albert", 28, countryA);
-        GoalKeeper goalie2 = new GoalKeeper(Gender.FEMALE, "Maria", 26, countryB);
+        GoalKeeper goalie2 = new GoalKeeper(Gender.MALE, "Maria", 26, countryB);
         GoalKeeper goalie3 = new GoalKeeper(Gender.MALE, "Josep", 30, countryC);
-        GoalKeeper goalie4 = new GoalKeeper(Gender.FEMALE, "Helena", 25, countryD);
+        GoalKeeper goalie4 = new GoalKeeper(Gender.MALE, "Helena", 25, countryD);
         GoalKeeper goalie5 = new GoalKeeper(Gender.MALE, "Pau", 28, countryA);
-        GoalKeeper goalie6 = new GoalKeeper(Gender.FEMALE, "Alex", 26, countryB);
+        GoalKeeper goalie6 = new GoalKeeper(Gender.MALE, "Alex", 26, countryB);
         GoalKeeper goalie7 = new GoalKeeper(Gender.MALE, "Pep", 30, countryC);
-        GoalKeeper goalie8 = new GoalKeeper(Gender.FEMALE, "Jan", 25, countryD);
+        GoalKeeper goalie8 = new GoalKeeper(Gender.MALE, "Jan", 25, countryD);
 
         // Add Goalkeepers to Teams
         team1.addPlayer(goalie1);
@@ -81,7 +81,6 @@ public class CupMain {
         cup.printMatches();
 
         cup.printBracket();
-        
 
     }
 }

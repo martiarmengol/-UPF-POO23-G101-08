@@ -9,13 +9,13 @@ public class LeagueMain {
         Country countryE = new Country("Portugal");
         
         Team team1 = new Team("Barça", countryA, Gender.MALE);
-        Team team2 = new Team("Madrid", countryB, Gender.FEMALE);
+        Team team2 = new Team("Madrid", countryB, Gender.MALE);
         Team team3 = new Team("Atletico", countryC, Gender.MALE);
-        Team team4 = new Team("Valencia", countryD, Gender.FEMALE);
+        Team team4 = new Team("Valencia", countryD, Gender.MALE);
 
         String[] playerNames = { "Marti", "Sergi", "Joan", "Adry", "Jofre", "Guillem", "Jordi", "Rita", "Eli", "Georgina" };
         int[] playerAges = { 25, 23, 27, 22, 24, 26, 28, 29, 30, 21 };
-        Gender[] playerGenders = { Gender.MALE, Gender.FEMALE, Gender.MALE, Gender.FEMALE, Gender.MIXED, Gender.MIXED, Gender.MIXED, Gender.FEMALE, Gender.MALE, Gender.MIXED };
+        Gender[] playerGenders = { Gender.MALE, Gender.MALE, Gender.MALE, Gender.MALE, Gender.MALE, Gender.MIXED, Gender.MIXED, Gender.MALE, Gender.MALE, Gender.MALE };
 
         for (int i = 0; i < playerNames.length; i++) {
             OutFielder player = new OutFielder(playerGenders[i], playerNames[i], playerAges[i], i % 5 == 0 ? countryA
@@ -33,9 +33,9 @@ public class LeagueMain {
         }
 
         GoalKeeper goalie1 = new GoalKeeper(Gender.MALE, "Albert", 28, countryA);
-        GoalKeeper goalie2 = new GoalKeeper(Gender.FEMALE, "Maria", 26, countryB);
+        GoalKeeper goalie2 = new GoalKeeper(Gender.MALE, "Maria", 26, countryB);
         GoalKeeper goalie3 = new GoalKeeper(Gender.MALE, "Josep", 30, countryC);
-        GoalKeeper goalie4 = new GoalKeeper(Gender.FEMALE, "Helena", 25, countryD);
+        GoalKeeper goalie4 = new GoalKeeper(Gender.MALE, "Helena", 25, countryD);
 
         // Add Goalkeepers to Teams
         team1.addPlayer(goalie1);
@@ -56,7 +56,6 @@ public class LeagueMain {
         league.simulateMatches();
 
         System.out.println(">>>>>>>>>>START OF THE LEAGUE<<<<<<<<<<");
-        System.out.println(" ");
         league.printMatches();
 
         // Print team statistics
@@ -65,5 +64,8 @@ public class LeagueMain {
         for (Team team : l.getTeams()) {
             team.printStats();
         }
+
+        league.printTable();
+        league.printGoalScorers(league.getTotalPlayers());
     }
 }

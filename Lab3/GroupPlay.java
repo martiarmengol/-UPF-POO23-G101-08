@@ -9,9 +9,10 @@ public class GroupPlay extends Competition {
     private int noGroups;
     private ArrayList<League> groups = new ArrayList<>();
 
-    public GroupPlay(boolean s,String n, Country c, Gender g){
+    public GroupPlay(boolean s,String n, Country c, Gender g,int nG){
         super(s,n,c,g);
-        //groups = new ArrayList<>();
+        noGroups = nG;
+        groups = new ArrayList<>();
     }
 
     public void addGroup(League l){

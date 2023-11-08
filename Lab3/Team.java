@@ -33,8 +33,35 @@ public class Team {
         return gender;
     }
 
+    public int getWins(){
+        return noWins;
+    }
+
+    public int getLosses(){
+        return noLosses;
+    }
+
+    public int getGoalsScored(){
+        return goalsScored;
+    }
+
+    public int getGoalsAgainst(){
+        return goalsAgainst;
+    }
+
     public void addPlayer(Player p){
-        playerList.add(p);
+        if((p.isFemale() == true) && gender== Gender.FEMALE){
+            playerList.add(p);
+        }else if((p.isFemale() == false) && gender == Gender.MALE){
+            playerList.add(p);
+        }else if((p.isFemale() == false) && gender == Gender.FEMALE){
+            System.out.println("The team is only for Females");
+        }else if(gender == Gender.MIXED){
+            playerList.add(p);
+        }else if((p.isFemale() == true) && gender == Gender.MALE){
+            System.out.println("The team is only for Males");
+        }
+        
     }
 
     public void removePlayer(Player p){

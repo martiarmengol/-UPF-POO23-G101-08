@@ -164,7 +164,6 @@ public class Cup extends Competition {
         System.out.println("Cup Winner: " + tr.get(tr.size() - 1).get(0).getName());
     }
     
-    
 }
 
 
