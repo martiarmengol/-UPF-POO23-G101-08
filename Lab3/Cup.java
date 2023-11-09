@@ -23,78 +23,6 @@ public class Cup extends Competition {
         }
     }
 
-    /*public void generateMatches() {
-        ArrayList<Team> initialTeams = new ArrayList<>(teams);
-        Collections.shuffle(initialTeams);
-    
-        tr.add(new ArrayList<>(initialTeams));
-        mr.add(new ArrayList<>());
-    
-        int round = 0;
-    
-        while (tr.get(round).size() > 1) {
-            int numMatches = tr.get(round).size() / 2;
-            tr.add(new ArrayList<>());
-            mr.add(new ArrayList<>());
-    
-            for (int i = 0; i < numMatches; i++) {
-                Team homeTeam = tr.get(round).get(i);
-                Team awayTeam = tr.get(round).get(i + numMatches);
-    
-                if (homeTeam != null && awayTeam != null) {
-                    CupMatch match = new CupMatch(homeTeam, awayTeam);
-                    mr.get(round + 1).add(match);
-    
-                    if (match.getHomeGoals() > match.getAwayGoals()) {
-                        // Only add the home team if it wins.
-                        tr.get(round + 1).add(homeTeam);
-                    } else {
-                        // Add the away team if it wins or ties.
-                        tr.get(round + 1).add(awayTeam);
-                    }
-                }
-            }
-    
-            round++;
-        }
-    }*/
-
-    /*public void generateMatches() {
-    ArrayList<Team> initialTeams = new ArrayList<>(teams);
-    Collections.shuffle(initialTeams);
-
-    tr.add(new ArrayList<>(initialTeams));
-    mr.add(new ArrayList<>());
-
-    int round = 0;
-
-    while (tr.get(round).size() > 1) {
-        int numMatches = tr.get(round).size() / 2;
-        tr.add(new ArrayList<>());
-        mr.add(new ArrayList<>());
-
-        for (int i = 0; i < numMatches; i++) {
-            Team homeTeam = tr.get(round).get(i);
-            Team awayTeam = tr.get(round).get(i + numMatches);
-
-            if (homeTeam != null && awayTeam != null) {
-                CupMatch match = new CupMatch(homeTeam, awayTeam);
-                mr.get(round).add(match);
-
-                if (match.getHomeGoals() > match.getAwayGoals()) {
-                    // Only add the home team if it wins.
-                    tr.get(round).add(homeTeam);
-                } else {
-                    // Add the away team if it wins or ties.
-                    tr.get(round).add(awayTeam);
-                }
-            }
-        }
-
-        round++;
-    }
-    }*/
-
     public void generateMatches() {
         ArrayList<Team> initialTeams = new ArrayList<>(teams);
         Collections.shuffle(initialTeams);
@@ -136,19 +64,12 @@ public class Cup extends Competition {
                 match.simulateMatch();
                 match.getHomeTeam().updateStats(match);
                 match.getAwayTeam().updateStats(match);
+                match.printMatch();
             }
         }
     }
 
     public void printBracket() {
-        /*System.out.println("Round 1 Matches:");
-        ArrayList<CupMatch> roundMatches = mr.get(0);
-        if (roundMatches != null) {
-            for (CupMatch match : roundMatches) {
-                System.out.println(match.getHomeTeam().getName() + " vs " + match.getAwayTeam().getName());
-            }
-        }
-        System.out.println();*/
         ArrayList<CupMatch> roundMatches = mr.get(0);
         for (int round = 1; round < tr.size(); round++) {
             System.out.println("Round " + (round) + " Matches:");

@@ -78,9 +78,10 @@ public class CupMain {
         // Generate and simulate matches
         cup.generateMatches();
         cup.simulateMatches();
-        cup.printMatches();
+        //cup.printMatches();
 
         cup.printBracket();
+    
 
     }
 }
