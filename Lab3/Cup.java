@@ -72,17 +72,17 @@ public class Cup extends Competition {
     public void printBracket() {
         ArrayList<CupMatch> roundMatches = mr.get(0);
         for (int round = 1; round < tr.size(); round++) {
-            System.out.println("Round " + (round) + " Matches:");
+            System.out.println("ROUND " + (round) + " MATCHES:");
             roundMatches = mr.get(round);
             if (roundMatches != null) {
                 for (CupMatch match : roundMatches) {
-                    System.out.println(match.getHomeTeam().getName() + " vs " + match.getAwayTeam().getName());
+                    System.out.println(match.getHomeTeam().getName() + " VS " + match.getAwayTeam().getName());
                 }
             }
             System.out.println();
         }
     
-        System.out.println("Cup Winner: " + tr.get(tr.size() - 1).get(0).getName());
+        System.out.println("CUP WINER: " + tr.get(tr.size() - 1).get(0).getName());
     }
     
 }
