@@ -1,4 +1,4 @@
-package Lab3;
+//package Lab3;
 
 public class Country {
 	private String name;

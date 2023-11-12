@@ -1,4 +1,4 @@
-package Lab3;
+//package Lab3;
 
 public class NationalTeam extends Team{
     public NationalTeam(String n, Country c, Gender g){

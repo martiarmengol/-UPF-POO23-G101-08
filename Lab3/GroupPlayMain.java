@@ -1,4 +1,4 @@
-package Lab3;
+//package Lab3;
 
 public class GroupPlayMain {
     public static void main(String[] args) {

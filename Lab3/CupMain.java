@@ -1,4 +1,4 @@
-package Lab3;
+//package Lab3;
 
 public class CupMain {
     public static void main(String[] args) {
@@ -80,6 +80,7 @@ public class CupMain {
         cup.simulateMatches();
         //cup.printMatches();
 
+        System.out.println("---------- BRACKET ----------");
         cup.printBracket();
     
 

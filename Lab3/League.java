@@ -1,4 +1,4 @@
-package Lab3;
+//package Lab3;
 
 public class League extends Competition {
     public League(boolean s,String n, Country c,Gender g ){
