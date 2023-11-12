@@ -73,6 +73,38 @@ This new class is used to differentiate between club and national team. Since in
 Since there is an addition of the Cup competition where there cannot be ties, the CupMatch class must be implemented. This class inherits the attributes and some methos from the Match class. Implemented methods:
 •	CupMatch(Team h,Team a): Constructor.
 •	simulateMatch(): Simulate generated match but considering that now there cannot be a tie and extra time must be played
+
+## DESCRIPTION OF ALTERNATIVE  
+During this third lab there were a lot of different implementations that we had to do, and not always our first idea of how to approach them was the final one. For example in the desigining of the Competition class, the development of the addTeam method was completely different. Since we were struggling at first we tried to work with 3 different methods just for addTeam to work which was a good idea but there were problems and the main purpose was to only have the addTeam method for this purpose of adding teams to the competition. This is what it looked like: 
+
+```
+public void addTeam(Team team) {
+    if (isTeamValidForCompetition(team)) {
+        teams.add(team);
+    } else {
+        displayInvalidTeamMessage();
+    }
+}
+
+private boolean isTeamValidForCompetition(Team team) {
+    if (clubs) {
+        return !(team instanceof NationalTeam);
+    } else {
+        return team instanceof NationalTeam;
+    }
+}
+
+private void displayInvalidTeamMessage() {
+    if (clubs) {
+        System.out.println("The competition doesn't allow National Teams, only clubs.");
+    } else {
+        System.out.println("The competition only allows National Teams, not clubs.");
+    }
+}
+
+
+```
+
 ## CONCLUSION
 Right now the project is more advanced and complex with a lot of different classes and with subtypes of players, competitions, teams and matches which make is better. There is also a relation between the majority of the classes and with this lab we have added the inheritance concept with the new and old classes.
 The current program is very expanded and complete but for the next labs we could focus on first of all defining all the print methods and completing the code and then work in  new details to improve the overall project like for example adding more types of outfielders  (strikers, midfielders and defenders).
