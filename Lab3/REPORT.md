@@ -107,6 +107,8 @@ public void displayInvalidTeamMessage() {
 
 ## CONCLUSION
 Right now the project is more advanced and complex with a lot of different classes and with subtypes of players, competitions, teams and matches which make is better. There is also a relation between the majority of the classes and with this lab we have added the inheritance concept with the new and old classes.
+
 The current program is very expanded and complete but for the next labs we could focus on first of all defining all the print methods and completing the code and then work in  new details to improve the overall project like for example adding more types of outfielders  (strikers, midfielders and defenders).
 The main issue we had with this third lab was the lack of experience working with the inheritance concept, and therefore at the start we struggled because for example we didn’t know that we had to switch some attributes from private to protected so that the inheritance worked correctly.
+
 Overall, the project is starting to have a good shape and if we complete what we currently have and also add some more details this project will keep increasing its quality.
