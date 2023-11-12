@@ -4,35 +4,35 @@ The goal of this third lab is to add new classes that are useful to distinguish 
 ### Players Class:_
 This class was already defined, but now since we want to distinguish goalkeepers and outfielders, we there is a modification of attributes, which now are:  gender, name, age, nationality and number of matches. Methods implemented:
 
-•	Player(Gender g, String n, int a, Country nat): Constructor.
-•	isFemale(): True if player gender is female, false otherwise.
-•	getName(): Get player nationality
-•	getAge(): Get player nationality.
-•	getNationality(): Get player nationality.
-•	equals( object o): Compare player and team gender to know eligibility.
-•	update(Match m): Update the stats of player after a match.
++ **Player(Gender g, String n, int a, Country nat):** Constructor.
++ **isFemale():** True if player gender is female, false otherwise.
++ **getName():** Get player nationality
++ **getAge():** Get player nationality.
++ **getNationality():** Get player nationality.
++ **equals( object o):** Compare player and team gender to know eligibility.
++ **update(Match m):** Update the stats of player after a match.
 
 ### Goalkeeper Class:_
 This class corresponds to the players that are goalkeepers, notice that it will inherit some attributes and methos from the player class but there are different attributes like number of saves and number of goals let. Methods implemented:
 
-•	Goalkeeper(Gender g, String n, int a, Country nat): Constructor.
-•	updateStats(Match m): Update goalkeeper stats
++ **Goalkeeper(Gender g, String n, int a, Country nat):** Constructor.
++ **updateStats(Match m):** Update goalkeeper stats
 
 ### Outfielder Class:_
 This class corresponds to the players that are outfielders, notice that it will inherit some attributes and methos from the player class but there are different attributes like number of tackles, passes, shots assists and goals. Methods implemented:
 
-•	Outfielder(Gender g, String n, int a, Country nat): Constructor.
-•	updateStats(Match m): Update outfielder stats
++ **Outfielder(Gender g, String n, int a, Country nat):** Constructor.
++ **updateStats(Match m):** Update outfielder stats
 
 
 ### Competition Class:_
 This new class can be understood as the old league class with almost the same methods and attributes. We have changed the name because now there will be 3 different types of competition: league, cup and group play. This class has the attributes: clubs, name, country, gender, list of teams and list of matches. Methods implemented:
-•	Competition(boolean cl, String n, Country co, Gender g): Constructor.
-•	addTeam(Team t): Add team to the competition.
-•	generateMatches(): Create random match between two different teams of the competition 
-•	simulateMatches(): Simulate a generated match
-•	printMatches(): Print the result of a match that has been simulated
-•	printGoalScorers(int k): Print the k top goal scorers of the competition
++ **Competition(boolean cl, String n, Country co, Gender g):** Constructor.
++ **addTeam(Team t):** Add team to the competition.
++ **generateMatches():** Create random match between two different teams of the competition 
++ **simulateMatches():** Simulate a generated match
++ **printMatches():** Print the result of a match that has been simulated
++ **printGoalScorers(int k):** Print the k top goal scorers of the competition
 
 
 
@@ -41,16 +41,16 @@ This new class can be understood as the old league class with almost the same me
 
 ### League Class:_
 This modified class represents the type of competition league, whereas explained in the previous labs consist of playing every other team twice and the winner of each match gets three points, the lose none and if there is a tie both teams receive one point. After all games are played, the team with more points wins the league. The attributes are inherited from the Competition class and the implemented methods are:
-•	League(String n, Country c, Gender g): Constructor.
-•	generateMatches(): Create random match between two different teams of the league 
++ **League(String n, Country c, Gender g):** Constructor.
++ **generateMatches():** Create random match between two different teams of the league 
 
 ### Cup Class:_
 This new class represents the type of competition cup, this competition has the characteristic that there is always a winner, in other words there cannot be a tie. This is because the competition works with a bracket where teams play each other and the winner advances to next round and the loser is eliminated. So, in our case if there is time we add and overtime where the first team to score wins. The attributes are inherited from the Competition class in addition to the array of list of Team and array list of Match attributes. The implemented methods are:
 
-•	Cup(String n, Country c, Gender g): Constructor.
-•	generateMatches(): Create random match between two different teams of the cup 
-•	simulateMatches(): Simulate generated match 
-•	printBracket(): Print bracket of the cup
++ **Cup(String n, Country c, Gender g):** Constructor.
++ **generateMatches():** Create random match between two different teams of the cup 
++ **simulateMatches():** Simulate generated match 
++ **printBracket():** Print bracket of the cup
 
 
 
@@ -59,20 +59,20 @@ This new class represents the type of competition cup, this competition has the 
 ### GruopPlay Class:_
 This new class represents the third type of competition cup, this competition consists on a few different groups of teams where after playing the corresponding matches the top teams of each group advance to the next round and the rest are eliminated. The attributes are inherited from the Competition class in addition to the number of groups and array of League attributes. Methods:
 
-•	GroupPlay(String n, Country c, Gender g): Constructor.
-•	generateMatches(): Create random match between two different teams of the same group 
-•	simulateMatches(): Simulate generated match 
-•	printTables(): Prints the tables of each group 
++ **GroupPlay(String n, Country c, Gender g):** Constructor.
++ **generateMatches():** Create random match between two different teams of the same group 
++ **simulateMatches():** Simulate generated match 
++ **printTables():** Prints the tables of each group 
 
 ### NationalTeam Class:_
 This new class is used to differentiate between club and national team. Since in the real world the best players of each country play together in national competitions, in this project we implement this class so that in the three different types of competition can compete either clubs or national team (in each competition all have to be of the same type). The attributes and methods  are inherited from the Team class. Implemented methods: 
-•	NationalTeam(String n, Country c, Gender g): Constructor.
-•	addPlayer(): Add player to the national team.
++ **NationalTeam(String n, Country c, Gender g):** Constructor.
++ **addPlayer():** Add player to the national team.
 
 ### CupMatch Class:_
 Since there is an addition of the Cup competition where there cannot be ties, the CupMatch class must be implemented. This class inherits the attributes and some methos from the Match class. Implemented methods:
-•	CupMatch(Team h,Team a): Constructor.
-•	simulateMatch(): Simulate generated match but considering that now there cannot be a tie and extra time must be played
++ **CupMatch(Team h,Team a):** Constructor.
++ **simulateMatch():** Simulate generated match but considering that now there cannot be a tie and extra time must be played
 
 ## DESCRIPTION OF ALTERNATIVE  
 During this third lab there were a lot of different implementations that we had to do, and not always our first idea of how to approach them was the final one. For example in the desigining of the Competition class, the development of the addTeam method was completely different. Since we were struggling at first we tried to work with 3 different methods just for addTeam to work which was a good idea but there were problems and the main purpose was to only have the addTeam method for this purpose of adding teams to the competition. This is what it looked like: 
