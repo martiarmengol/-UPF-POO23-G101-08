@@ -86,7 +86,7 @@ public void addTeam(Team team) {
     }
 }
 
-private boolean isTeamValidForCompetition(Team team) {
+public boolean isTeamValidForCompetition(Team team) {
     if (clubs) {
         return !(team instanceof NationalTeam);
     } else {
@@ -94,7 +94,7 @@ private boolean isTeamValidForCompetition(Team team) {
     }
 }
 
-private void displayInvalidTeamMessage() {
+public void displayInvalidTeamMessage() {
     if (clubs) {
         System.out.println("The competition doesn't allow National Teams, only clubs.");
     } else {
