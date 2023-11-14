@@ -1,5 +1,6 @@
 //package Lab3;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class Player {
@@ -7,7 +8,7 @@ public class Player {
     protected String name;
     protected int age;
     protected Country nationality;
-    protected int noMatches;
+    HashMap<Competition,PlayerStats> stats;
     
     public Player(Gender g, String n, int a, Country nat) {
         gender = g;

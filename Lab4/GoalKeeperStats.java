@@ -1,13 +1,11 @@
-//package Lab3;
+import java.util.*;
 
-import java.util.Random;
-
-public class GoalKeeper extends Player {
+public class GoalKeeperStats extends PlayerStats {
     private int noSaves;
     private int goalsLet;
 
-    public GoalKeeper(Gender g, String n, int a, Country nat){
-        super(g,n,a,nat);
+    public GoalKeeperStats(Player p){
+        super(p);
     }
 
     public void updateStats(Match m){
@@ -22,4 +20,14 @@ public class GoalKeeper extends Player {
             this.goalsLet += m.homeGoals;
         }
     }
+
+    public void printStats(){
+        
+        
+    }
+
+    public int compareTo(Object o){
+        return 0;
+    }
+
 }
