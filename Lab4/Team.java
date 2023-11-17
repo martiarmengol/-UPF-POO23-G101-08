@@ -53,6 +53,28 @@ public class Team {
         return playerList;
     }
 
+    public void updateStats(CupMatch match) {
+    }
+
+    public void printStats() {
+    }
+
+    public Object getWins() {
+        return null;
+    }
+
+    public Object getLosses() {
+        return null;
+    }
+
+    public Object getGoalsScored() {
+        return null;
+    }
+
+    public Object getGoalsAgainst() {
+        return null;
+    }
+
     /*public void playMatch (int pro, int against){
         if(pro>against) noWins++;
         if(pro<against) noLosses++;

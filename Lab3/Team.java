@@ -108,8 +108,6 @@ public class Team {
     }
     
     
-
-
     public void printStats(){
         System.out.println(" ");
         System.out.println("Team:"+name+" stats");
