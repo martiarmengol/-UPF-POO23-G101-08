@@ -8,13 +8,14 @@ public class Player {
     protected String name;
     protected int age;
     protected Country nationality;
-    HashMap<Competition,PlayerStats> stats;
+    protected HashMap<Competition,PlayerStats> stats;
     
     public Player(Gender g, String n, int a, Country nat) {
         gender = g;
         name = n;
         age = a;
         nationality = nat;
+        this.stats = new HashMap<>();
     }
 
     public boolean isFemale (){
@@ -35,8 +36,20 @@ public class Player {
         return nationality;
     }
 
-    public void updateStats(Match m){
+    public void update(Match match, Competition competition) {
+        PlayerStats playerStats = stats.get(competition);
 
+        if (playerStats == null) {
+            if (this instanceof GoalKeeper) {
+                playerStats = new GoalKeeperStats(this);
+            } else if (this instanceof OutFielder) {
+                playerStats = new OutfielderStats(this);
+            }
+
+            stats.put(competition, playerStats);
+        }
+
+        playerStats.updateStats(match);
     }
     
 }

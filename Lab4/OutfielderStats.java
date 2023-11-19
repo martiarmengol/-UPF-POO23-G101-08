@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class OutfielderStats extends PlayerStats {
+public class OutfielderStats extends PlayerStats implements Comparable<OutfielderStats>{
     private int noTackles;
     private int noPasses;
     private int noShots;
@@ -30,8 +30,10 @@ public class OutfielderStats extends PlayerStats {
         
     }
 
-    public int compareTo(Object o){
-        return 0;
+    @Override
+    public int compareTo(OutfielderStats other) {
+        // Compare based on the number of goals
+        return Integer.compare(other.noGoals, this.noGoals); // Sort by goals in descending order
     }
 
 }

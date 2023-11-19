@@ -1,8 +1,5 @@
 //package Lab3;
 
-import java.util.Dictionary;
-import java.util.LinkedList;
-import java.util.Random;
 import java.util.*;
 
 public class Team {
@@ -10,12 +7,13 @@ public class Team {
     protected Country country;
     protected Gender gender;
     protected LinkedList<Player> playerList = new LinkedList<>();
-    HashMap<Competition,TeamStats> stats;
+    protected HashMap<Competition,TeamStats> stats;
 
     public Team(String n, Country c, Gender g) {
         name = n;
         country = c;
         gender = g;
+        this.stats = new HashMap<>();
     }
     
     public String getName(){
@@ -75,12 +73,19 @@ public class Team {
         return null;
     }
 
-    /*public void playMatch (int pro, int against){
-        if(pro>against) noWins++;
-        if(pro<against) noLosses++;
-        if(pro==against) noTies++;
-        noMatches++;
-        goalsScored += pro;
-        goalsAgainst +=against;
-    }*/
+    public void update(Match match, Competition competition) {
+        TeamStats teamStats = stats.get(competition);
+
+        if (teamStats == null) {
+            teamStats = new TeamStats(this);
+            stats.put(competition, teamStats);
+        }
+
+        teamStats.updateStats(match);
+
+        // Call the update method of Player on all players in the team
+        for (Player player : getPlayers()) {
+            player.update(match, competition);
+        }
+    }
 }

@@ -1,4 +1,6 @@
-public class TeamStats extends Team{
+import java.util.List;
+
+public class TeamStats extends Team implements Comparable<TeamStats>{
     protected Team t;
     protected int noMatches;
     protected int noWins;
@@ -10,23 +12,35 @@ public class TeamStats extends Team{
     public TeamStats(Team t){
         super(t.name,t.country,t.gender);
     }
-    public int getWins(){
-        return noWins;
-    }
-
-    public int getLosses(){
-        return noLosses;
-    }
-
-    public int getGoalsScored(){
-        return goalsScored;
-    }
-
-    public int getGoalsAgainst(){
-        return goalsAgainst;
-    }
 
     public void updateStats(Match match) {
+        List<Player> outfielders = getOutfielders();  // Assuming you have a method to get outfielder players
+
+        for (Player player : outfielders) {
+            if (player instanceof OutFielder) {
+                OutfielderStats outfielderStats = ((OutfielderStats) player.getStats());
+                outfielderStats.updateStats(match);
+            }
+        }
+
+        int homeGoals = match.getHomeGoals();
+        int awayGoals = match.getAwayGoals();
+
+        if (homeGoals > awayGoals) {
+            noWins++;
+        } else if (homeGoals < awayGoals) {
+            noLosses++;
+        } else {
+            noTies++;
+        }
+
+        goalsScored += homeGoals;
+        goalsAgainst += awayGoals;
+
+        noMatches++;
+    }
+
+    /*public void updateStats(Match match) {
         for (Player player : getPlayers()) {
             // Check if the player is an instance of OutFielder before casting
             if (player instanceof OutFielder) {
@@ -50,7 +64,7 @@ public class TeamStats extends Team{
         goalsAgainst += awayGoals;
     
         noMatches++;
-    }
+    }*/
 
     public void printStats(){
         System.out.println(" ");
@@ -64,7 +78,24 @@ public class TeamStats extends Team{
         System.out.println(" ");
     }
 
-    public int compareTo(Object o){
+    @Override
+    public int compareTo(TeamStats other) {
+        // Compare based on the given criteria
+        int pointsThis = 3 * noWins + noTies;
+        int pointsOther = 3 * other.noWins + other.noTies;
+
+        if (pointsThis != pointsOther) {
+            return Integer.compare(pointsOther, pointsThis); // Sort by points in descending order
+        }
+
+        int goalDifferenceThis = goalsScored - goalsAgainst;
+        int goalDifferenceOther = other.goalsScored - other.goalsAgainst;
+
+        if (goalDifferenceThis != goalDifferenceOther) {
+            return Integer.compare(goalDifferenceOther, goalDifferenceThis); // Sort by goal difference in descending order
+        }
+
+        // If all criteria are equal, sort arbitrarily
         return 0;
     }
 }

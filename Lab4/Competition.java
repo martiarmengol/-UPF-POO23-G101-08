@@ -56,8 +56,8 @@ public abstract class Competition {
         for (Match match : matches) {
             match.simulateMatch();
             
-            match.getHomeTeam().updateStats(match); 
-            match.getAwayTeam().updateStats(match); 
+            match.getHomeTeam().update(match,this); 
+            match.getAwayTeam().update(match,this); 
         }
     }
 
