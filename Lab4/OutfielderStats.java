@@ -11,6 +11,10 @@ public class OutfielderStats extends PlayerStats implements Comparable<Outfielde
         super(p);
     }
 
+    public int getGoals(){
+        return noGoals;
+    }
+
     public void updateStats(Match m){
         Random random = new Random();
         
@@ -26,8 +30,16 @@ public class OutfielderStats extends PlayerStats implements Comparable<Outfielde
         this.noAssists = random.nextInt(11); 
     }
 
+    @Override
     public void printStats(){
-        
+        System.out.println("Statistics for " + getName() + ":");
+        System.out.println("Goals: " + noGoals);
+        System.out.println("Tackles: " + noTackles);
+        System.out.println("Passes: " + noPasses);
+        System.out.println("Shots: " + noShots);
+        System.out.println("Assists: " + noAssists);
+        System.out.println("Matches Played: " + noMatches);
+        System.out.println();
     }
 
     @Override

@@ -68,27 +68,55 @@ public abstract class Competition {
     }
 
     public void printGoalScorers(int k) {
-    // Create a list to store all outfielders from the teams
-    List<OutFielder> outfielders = new ArrayList<>();
-    
-    for (Team team : teams) {
-        for (Player player : team.getPlayers()) {
-            if (player instanceof OutFielder) {
-                outfielders.add((OutFielder) player);
+        /*/ Create a list to store all outfielders from the teams
+        List<OutFielder> outfielders = new ArrayList<>();
+        
+        for (Team team : teams) {
+            for (Player player : team.getPlayers()) {
+                if (player instanceof OutFielder) {
+                    outfielders.add((OutFielder) player);
+                }
             }
         }
+        
+        // Sort the outfielders based on the number of goals scored
+        outfielders.sort(Comparator.comparing(OutFielder::getGoals).reversed());
+        
+        // Print the top k goal scorers
+        System.out.println("Top " + k + " Goal Scorers:");
+        
+        for (int i = 0; i < k && i < outfielders.size(); i++) {
+            OutFielder outfielder = outfielders.get(i);
+            System.out.println((i + 1) + ". " + outfielder.getName() + " (" + outfielder.getGoals() + " goals)");
+        }*/
+
+        // Get the list of outfielder stats for all outfielder players in the competition
+        List<OutfielderStats> outfielderStatsList = getOutfielderStats();
+
+        // Sort the outfielder stats based on the number of goals scored
+        Collections.sort(outfielderStatsList);
+
+        // Print the top k goal scorers
+        System.out.println("Top " + k + " Goal Scorers:");
+        for (int i = 0; i < k && i < outfielderStatsList.size(); i++) {
+            OutfielderStats outfielderStats = outfielderStatsList.get(i);
+            System.out.println((i + 1) + ". " + outfielderStats.name + " (" + outfielderStats.getGoals() + " goals)");
+        }
     }
-    
-    // Sort the outfielders based on the number of goals scored
-    outfielders.sort(Comparator.comparing(OutFielder::getGoals).reversed());
-    
-    // Print the top k goal scorers
-    System.out.println("Top " + k + " Goal Scorers:");
-    
-    for (int i = 0; i < k && i < outfielders.size(); i++) {
-        OutFielder outfielder = outfielders.get(i);
-        System.out.println((i + 1) + ". " + outfielder.getName() + " (" + outfielder.getGoals() + " goals)");
-    }
+
+    private List<OutfielderStats> getOutfielderStats() {
+        List<OutfielderStats> outfielderStatsList = new ArrayList<>();
+
+        for (Team team : teams) {
+            for (Player player : team.getPlayers()) {
+                if (player instanceof OutFielder) {
+                    OutfielderStats outfielderStats = (OutfielderStats) player.getStats(this);
+                    outfielderStatsList.add(outfielderStats);
+                }
+            }
+        }
+
+        return outfielderStatsList;
     }
 
 }

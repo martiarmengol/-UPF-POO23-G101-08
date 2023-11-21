@@ -10,10 +10,12 @@ public class Match {
     protected int homeGoals;
     protected LinkedList<Player> homeScorers = new LinkedList<>();
     protected LinkedList<Player> awayScorers = new LinkedList<>();
+    protected Competition competition;
 
-    public Match(Team hT, Team aT){
+    public Match(Team hT, Team aT, Competition c){
         homeTeam = hT;
         awayTeam = aT;
+        competition = c;
     }
 
     public int getAwayGoals(){
@@ -38,6 +40,10 @@ public class Match {
 
     public LinkedList<Player> getAwayScorers() {
         return awayScorers;
+    }
+
+    public Competition getCompetition(){
+        return competition;
     }
 
     public void simulateMatch(){

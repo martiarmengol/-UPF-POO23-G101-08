@@ -51,8 +51,22 @@ public class Team {
         return playerList;
     }
 
-    public void updateStats(CupMatch match) {
+    public void updateStats(Match match, Competition competition) {
+        TeamStats teamStats = stats.get(competition);
+
+        if (teamStats == null) {
+            teamStats = new TeamStats(this);
+            stats.put(competition, teamStats);
+        }
+
+        teamStats.updateStats(match);
+
+        // Call the update method of Player on all players in the team
+        for (Player player : getPlayers()) {
+            player.update(match, competition);
+        }
     }
+
 
     public void printStats() {
     }
@@ -71,6 +85,18 @@ public class Team {
 
     public Object getGoalsAgainst() {
         return null;
+    }
+
+    public List<OutFielder> getOutfielders() {
+        List<OutFielder> outfielders = new ArrayList<>();
+
+        for (Player player : playerList) {
+            if (player instanceof OutFielder) {
+                outfielders.add((OutFielder) player);
+            }
+        }
+
+        return outfielders;
     }
 
     public void update(Match match, Competition competition) {

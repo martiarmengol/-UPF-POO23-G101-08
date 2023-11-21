@@ -14,11 +14,11 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
     }
 
     public void updateStats(Match match) {
-        List<Player> outfielders = getOutfielders();  // Assuming you have a method to get outfielder players
+        List<OutFielder> outfielders = getOutfielders();
 
         for (Player player : outfielders) {
             if (player instanceof OutFielder) {
-                OutfielderStats outfielderStats = ((OutfielderStats) player.getStats());
+                OutfielderStats outfielderStats = ((OutfielderStats) player.getStats(match.getCompetition()));
                 outfielderStats.updateStats(match);
             }
         }
@@ -66,17 +66,27 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
         noMatches++;
     }*/
 
-    public void printStats(){
+    public void printStats() {
         System.out.println(" ");
-        System.out.println("Team:"+name+" stats");
-        System.out.println("Matches:"+noMatches);
-        System.out.println("Wins:"+noWins);
-        System.out.println("Losses:"+noLosses);
-        System.out.println("Tie:"+noTies);
-        System.out.println("Against:"+goalsAgainst);
-        System.out.println("Goals Scored:"+goalsScored);
+        System.out.println("Team: " + name + " stats");
+        System.out.println("Matches: " + noMatches);
+        System.out.println("Wins: " + noWins);
+        System.out.println("Losses: " + noLosses);
+        System.out.println("Ties: " + noTies);
+        System.out.println("Goals Against: " + goalsAgainst);
+        System.out.println("Goals Scored: " + goalsScored);
+    
+        System.out.println("Individual Player Stats:");
+        for (Player player : getPlayers()) {
+            PlayerStats playerStats = player.getStats();
+            if (playerStats != null) {
+                playerStats.printStats();
+            }
+        }
+    
         System.out.println(" ");
     }
+    
 
     @Override
     public int compareTo(TeamStats other) {

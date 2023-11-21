@@ -36,8 +36,13 @@ public class Player {
         return nationality;
     }
 
+    public PlayerStats getStats(Competition competition) {
+        return stats.get(competition);
+    }
+    
+
     public void update(Match match, Competition competition) {
-        PlayerStats playerStats = stats.get(competition);
+        PlayerStats playerStats = getStats(competition);
 
         if (playerStats == null) {
             if (this instanceof GoalKeeper) {
@@ -49,7 +54,9 @@ public class Player {
             stats.put(competition, playerStats);
         }
 
-        playerStats.updateStats(match);
+        if (playerStats != null) {
+            playerStats.updateStats(match);
+        }
     }
     
 }

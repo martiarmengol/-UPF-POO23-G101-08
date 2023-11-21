@@ -3,8 +3,8 @@
 import java.util.Random;
 
 public class CupMatch extends Match{
-    public CupMatch(Team h,Team a){
-        super(h, a);
+    public CupMatch(Team h,Team a, Competition c){
+        super(h, a,c);
     }
 
     public void simulateMatch(){
