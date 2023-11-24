@@ -62,8 +62,8 @@ public class Cup extends Competition {
         for (ArrayList<CupMatch> roundMatches : mr) {
             for (CupMatch match : roundMatches) {
                 match.simulateMatch();
-                match.getHomeTeam().updateStats(match,this);
-                match.getAwayTeam().updateStats(match,this);
+                match.getHomeTeam().update(match,this);
+                match.getAwayTeam().update(match,this);
                 match.printMatch();
             }
         }

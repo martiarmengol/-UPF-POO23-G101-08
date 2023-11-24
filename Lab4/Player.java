@@ -41,10 +41,12 @@ public class Player {
     }
     
 
-    public void update(Match match, Competition competition) {
-        PlayerStats playerStats = getStats(competition);
+    /*public void update(Match match, Competition competition) {
+        PlayerStats playerStats = stats.get(competition);
 
+        // Check if the player has statistics for the current competition
         if (playerStats == null) {
+            // Create an instance of PlayerStats or its subclasses based on player type
             if (this instanceof GoalKeeper) {
                 playerStats = new GoalKeeperStats(this);
             } else if (this instanceof OutFielder) {
@@ -54,9 +56,31 @@ public class Player {
             stats.put(competition, playerStats);
         }
 
-        if (playerStats != null) {
-            playerStats.updateStats(match);
+        // Update player statistics
+        playerStats.updateStats(match);
+    }*/
+
+    public void update(Match match, Competition competition) {
+        PlayerStats playerStats = stats.get(competition);
+    
+        // Check if the player has statistics for the current competition
+        if (playerStats == null) {
+            // Create an instance of PlayerStats or its subclasses based on player type
+            if (this instanceof GoalKeeper) {
+                playerStats = new GoalKeeperStats(this);
+            } else if (this instanceof OutFielder) {
+                playerStats = new OutfielderStats(this);
+            }
+    
+            stats.put(competition, playerStats);
         }
+    
+        // Update player statistics
+        playerStats.updateStats(match);
+
+        // Debugging statement
+        System.out.println("Updated stats for player " + name + ": " + playerStats);
     }
+    
     
 }

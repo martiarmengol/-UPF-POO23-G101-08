@@ -23,7 +23,7 @@ public class League extends Competition {
     public void printTable() {
         // Create a list to store TeamStats for all teams
         List<TeamStats> teamStatsList = new ArrayList<>();
-
+    
         // Update stats for each team
         for (Team team : teams) {
             TeamStats teamStats = new TeamStats(team);
@@ -32,19 +32,21 @@ public class League extends Competition {
             }
             teamStatsList.add(teamStats);
         }
-
+    
         // Sort the list of TeamStats
         Collections.sort(teamStatsList);
-
+    
         System.out.println("League Table for " + getName());
         System.out.println("---------------------------------------------------------");
         System.out.printf("%-20s %-10s %-10s %-10s %-10s%n", "Team", "Wins", "Losses", "Goals For", "Goals Against");
         System.out.println("---------------------------------------------------------");
-        for (Team team : teams) {
-            System.out.printf("%-20s %-10d %-10d %-10d %-10d%n", team.getName(), team.getWins(), team.getLosses(), team.getGoalsScored(), team.getGoalsAgainst());
+        for (TeamStats teamStats : teamStatsList) {
+            System.out.printf("%-20s %-10d %-10d %-10d %-10d%n", teamStats.getTeam().getName(), teamStats.getWins(),
+                    teamStats.getLosses(), teamStats.getNoGoalsScored(), teamStats.getNoGoalsAgainst());
         }
         System.out.println("---------------------------------------------------------");
     }
+    
     
 
 

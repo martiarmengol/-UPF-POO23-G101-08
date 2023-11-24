@@ -6,8 +6,10 @@ public abstract class PlayerStats extends Player{
         super(p.gender, p.name, p.age, p.nationality);
     }
 
-    public void updateStats(Match m){
-        
+    public Player getPlayer(){
+        return player;
     }
+
+    public abstract void updateStats(Match m);
     public abstract void printStats();
 }

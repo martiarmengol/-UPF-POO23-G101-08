@@ -51,23 +51,6 @@ public class Team {
         return playerList;
     }
 
-    public void updateStats(Match match, Competition competition) {
-        TeamStats teamStats = stats.get(competition);
-
-        if (teamStats == null) {
-            teamStats = new TeamStats(this);
-            stats.put(competition, teamStats);
-        }
-
-        teamStats.updateStats(match);
-
-        // Call the update method of Player on all players in the team
-        for (Player player : getPlayers()) {
-            player.update(match, competition);
-        }
-    }
-
-
     public void printStats() {
     }
 
@@ -102,16 +85,19 @@ public class Team {
     public void update(Match match, Competition competition) {
         TeamStats teamStats = stats.get(competition);
 
+        // Check if the team has statistics for the current competition
         if (teamStats == null) {
             teamStats = new TeamStats(this);
             stats.put(competition, teamStats);
         }
 
+        // Update team statistics
         teamStats.updateStats(match);
 
-        // Call the update method of Player on all players in the team
-        for (Player player : getPlayers()) {
+        // Update player statistics
+        for (Player player : playerList) {
             player.update(match, competition);
         }
     }
+
 }

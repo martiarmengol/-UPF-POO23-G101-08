@@ -83,6 +83,5 @@ public class CupMain {
         System.out.println("---------- BRACKET ----------");
         cup.printBracket();
     
-
     }
 }

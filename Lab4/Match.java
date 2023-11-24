@@ -76,6 +76,9 @@ public class Match {
 
         this.homeGoals = homeGoals;
         this.awayGoals = awayGoals;
+
+        homeTeam.update(this, competition);
+        awayTeam.update(this, competition);
     }
 
     public void printMatch() {

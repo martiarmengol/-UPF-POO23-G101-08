@@ -11,15 +11,32 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
 
     public TeamStats(Team t){
         super(t.name,t.country,t.gender);
+        this.t = t;
     }
 
-    public void updateStats(Match match) {
-        List<OutFielder> outfielders = getOutfielders();
+    public Team getTeam() {
+        return t;
+    }
 
-        for (Player player : outfielders) {
+    public int getNoGoalsScored() {
+        return goalsScored;
+    }
+
+    public int getNoGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+
+    public void updateStats(Match match) {
+
+        for (Player player : t.getOutfielders()) {
             if (player instanceof OutFielder) {
-                OutfielderStats outfielderStats = ((OutfielderStats) player.getStats(match.getCompetition()));
-                outfielderStats.updateStats(match);
+                OutfielderStats outfielderStats = (OutfielderStats) player.getStats(match.getCompetition());
+
+                // Check if outfielderStats is not null before updating
+                if (outfielderStats != null) {
+                    outfielderStats.updateStats(match);
+                }
             }
         }
 
@@ -78,7 +95,7 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
     
         System.out.println("Individual Player Stats:");
         for (Player player : getPlayers()) {
-            PlayerStats playerStats = player.getStats();
+            PlayerStats playerStats = player.getStats(null);
             if (playerStats != null) {
                 playerStats.printStats();
             }
