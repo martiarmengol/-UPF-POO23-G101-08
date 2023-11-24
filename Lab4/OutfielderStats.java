@@ -44,7 +44,6 @@ public class OutfielderStats extends PlayerStats implements Comparable<Outfielde
 
     @Override
     public int compareTo(OutfielderStats other) {
-        // Compare based on the number of goals
         return Integer.compare(other.noGoals, this.noGoals); // Sort by goals in descending order
     }
 

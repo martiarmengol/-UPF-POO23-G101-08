@@ -77,10 +77,11 @@ public class Player {
     
         // Update player statistics
         playerStats.updateStats(match);
-
+    
         // Debugging statement
         System.out.println("Updated stats for player " + name + ": " + playerStats);
     }
+    
     
     
 }
