@@ -11,10 +11,10 @@ public class Player {
     protected HashMap<Competition,PlayerStats> stats;
     
     public Player(Gender g, String n, int a, Country nat) {
-        gender = g;
-        name = n;
-        age = a;
-        nationality = nat;
+        this.gender = g;
+        this.name = n;
+        this.age = a;
+        this.nationality = nat;
         this.stats = new HashMap<>();
     }
 
@@ -58,7 +58,7 @@ public class Player {
 
         // Update player statistics
         playerStats.updateStats(match);
-    }*/
+    }
 
     public void update(Match match, Competition competition) {
         PlayerStats playerStats = stats.get(competition);
@@ -80,8 +80,30 @@ public class Player {
     
         // Debugging statement
         System.out.println("Updated stats for player " + name + ": " + playerStats);
-    }
+    }*/
+    public void update(Match match, Competition competition) {
+        PlayerStats playerStats = stats.get(competition);
     
+        // Check if the player has statistics for the current competition
+        if (playerStats == null) {
+            // Create an instance of PlayerStats or its subclasses based on player type
+            if (this instanceof GoalKeeper) {
+                playerStats = new GoalKeeperStats(this);
+            } else if (this instanceof OutFielder) {
+                playerStats = new OutfielderStats(this);
+            }
+    
+            stats.put(competition, playerStats);
+        }
+    
+        // Check if playerStats is not null before updating
+        if (playerStats != null) {
+            // Update player statistics
+            playerStats.updateStats(match);
+        } else {
+            System.out.println("Error: PlayerStats is null for player " + name + " in competition " + competition.getName());
+        }
+    }
     
     
 }

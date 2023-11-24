@@ -46,8 +46,4 @@ public class League extends Competition {
         }
         System.out.println("---------------------------------------------------------");
     }
-    
-    
-
-
 }

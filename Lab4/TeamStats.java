@@ -27,7 +27,7 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
     }
 
 
-    public void updateStats(Match match) {
+    /*public void updateStats(Match match) {
 
         for (Player player : t.getOutfielders()) {
             if (player instanceof OutFielder) {
@@ -55,33 +55,31 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
         goalsAgainst += awayGoals;
 
         noMatches++;
-    }
+    }*/
 
-    /*public void updateStats(Match match) {
-        for (Player player : getPlayers()) {
-            // Check if the player is an instance of OutFielder before casting
-            if (player instanceof OutFielder) {
-                OutFielder outFielder = (OutFielder) player;
-                outFielder.updateStats(match);
+    public void updateStats(Match match) {
+        if (match != null) {
+            if (match.getHomeTeam() == t) {
+                // Update stats based on the home team's performance
+                goalsScored += match.getHomeGoals();
+                goalsAgainst += match.getAwayGoals();
+                if (match.getHomeGoals() > match.getAwayGoals()) {
+                    noWins++;
+                } else if (match.getHomeGoals() < match.getAwayGoals()) {
+                    noLosses++;
+                }
+            } else if (match.getAwayTeam() == t) {
+                // Update stats based on the away team's performance
+                goalsScored += match.getAwayGoals();
+                goalsAgainst += match.getHomeGoals();
+                if (match.getAwayGoals() > match.getHomeGoals()) {
+                    noWins++;
+                } else if (match.getAwayGoals() < match.getHomeGoals()) {
+                    noLosses++;
+                }
             }
         }
-    
-        int homeGoals = match.getHomeGoals();
-        int awayGoals = match.getAwayGoals();
-    
-        if (homeGoals > awayGoals) {
-            noWins++;
-        } else if (homeGoals < awayGoals) {
-            noLosses++;
-        } else {
-            noTies++;
-        }
-    
-        goalsScored += homeGoals;
-        goalsAgainst += awayGoals;
-    
-        noMatches++;
-    }*/
+    }
 
     public void printStats() {
         System.out.println(" ");
@@ -107,7 +105,7 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
 
     @Override
     public int compareTo(TeamStats other) {
-        // Compare based on the given criteria
+        /*/ Compare based on the given criteria
         int pointsThis = 3 * noWins + noTies;
         int pointsOther = 3 * other.noWins + other.noTies;
 
@@ -123,6 +121,10 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
         }
 
         // If all criteria are equal, sort arbitrarily
-        return 0;
+        return 0;*/
+
+        int thisPoints = this.noWins * 3; // You might need to adjust this based on your scoring system
+        int otherPoints = other.noWins * 3;
+        return Integer.compare(otherPoints, thisPoints);
     }
 }

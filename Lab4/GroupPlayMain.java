@@ -101,6 +101,6 @@ public class GroupPlayMain {
         // Print match results and tables for each group
         groupPlay.printMatches();
         groupPlay.printTables();
-        groupPlay.printGoalScorers(groupPlay.getTotalPlayers());
+        groupPlay.printTopScorers(groupPlay.getTotalPlayers());
     }
 }
