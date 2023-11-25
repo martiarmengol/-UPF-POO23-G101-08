@@ -26,11 +26,10 @@ public class League extends Competition {
     
         // Update stats for each team
         for (Team team : teams) {
-            TeamStats teamStats = new TeamStats(team);
-            for (Match match : matches) {
-                teamStats.updateStats(match);
+            TeamStats teamStats = team.getStats(this);
+            if (teamStats != null) {
+                teamStatsList.add(teamStats);
             }
-            teamStatsList.add(teamStats);
         }
     
         // Sort the list of TeamStats

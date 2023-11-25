@@ -22,8 +22,10 @@ public class GoalKeeperStats extends PlayerStats {
     }
 
     public void printStats(){
-        
-        
+        System.out.println("Statistics for Goalkeeper " + getName() + ":");
+        System.out.println("Saves: " + noSaves);
+        System.out.println("Goals Let In: " + goalsLet);
+        System.out.println();
     }
 
     public int compareTo(Object o){

@@ -26,6 +26,14 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
         return goalsAgainst;
     }
 
+    public int getWins() {
+        return noWins;
+    }
+
+    public int getLosses() {
+        return noLosses;
+    }
+
 
     /*public void updateStats(Match match) {
 
@@ -104,27 +112,24 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
     
 
     @Override
-    public int compareTo(TeamStats other) {
-        /*/ Compare based on the given criteria
-        int pointsThis = 3 * noWins + noTies;
-        int pointsOther = 3 * other.noWins + other.noTies;
+public int compareTo(TeamStats other) {
+    int thisPoints = this.noWins * 3 + this.noTies;
+    int otherPoints = other.noWins * 3 + other.noTies;
 
-        if (pointsThis != pointsOther) {
-            return Integer.compare(pointsOther, pointsThis); // Sort by points in descending order
-        }
-
-        int goalDifferenceThis = goalsScored - goalsAgainst;
-        int goalDifferenceOther = other.goalsScored - other.goalsAgainst;
-
-        if (goalDifferenceThis != goalDifferenceOther) {
-            return Integer.compare(goalDifferenceOther, goalDifferenceThis); // Sort by goal difference in descending order
-        }
-
-        // If all criteria are equal, sort arbitrarily
-        return 0;*/
-
-        int thisPoints = this.noWins * 3; // You might need to adjust this based on your scoring system
-        int otherPoints = other.noWins * 3;
-        return Integer.compare(otherPoints, thisPoints);
+    // Compare based on points
+    if (thisPoints != otherPoints) {
+        return Integer.compare(otherPoints, thisPoints); // Sort by points in descending order
     }
+
+    int goalDifferenceThis = this.goalsScored - this.goalsAgainst;
+    int goalDifferenceOther = other.goalsScored - other.goalsAgainst;
+
+    // Compare based on goal difference
+    if (goalDifferenceThis != goalDifferenceOther) {
+        return Integer.compare(goalDifferenceOther, goalDifferenceThis); // Sort by goal difference in descending order
+    }
+
+    // Compare based on goals scored
+    return Integer.compare(other.goalsScored, this.goalsScored); // Sort by goals scored in descending order
+}
 }

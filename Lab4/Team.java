@@ -28,6 +28,10 @@ public class Team {
         return gender;
     }
 
+    public TeamStats getStats(Competition competition) {
+        return stats.get(competition);
+    }
+
     public void addPlayer(Player p){
         if((p.isFemale() == true) && gender== Gender.FEMALE){
             playerList.add(p);
@@ -52,22 +56,6 @@ public class Team {
     }
 
     public void printStats() {
-    }
-
-    public Object getWins() {
-        return null;
-    }
-
-    public Object getLosses() {
-        return null;
-    }
-
-    public Object getGoalsScored() {
-        return null;
-    }
-
-    public Object getGoalsAgainst() {
-        return null;
     }
 
     public List<OutFielder> getOutfielders() {
