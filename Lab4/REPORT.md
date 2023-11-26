@@ -284,7 +284,7 @@ public void printTopGoalScorers(int numPlayers) {
 
 ## DESCRIPTION OF ALTERNATIVE  
 
-
+In this lab we had to work and implement new things we hadn't wroked with before, that's why before correctly developing everything we had to try different approaches. In this case a alternative approach with the implementation of the Dictionary. Our first idea was something we learned last year working with C, we thought that it could be a good idea  to insted of using HashMap, read the player and team stats from a file, and have a file for every different competition. Even though it could be a good idea we have not been thaught how to work with files in Java and that's why we prefered to follow the instruction and use HashMap to implement the Dictionary.
 
 
 ## CONCLUSION
