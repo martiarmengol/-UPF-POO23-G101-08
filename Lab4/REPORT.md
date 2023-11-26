@@ -293,7 +293,7 @@ The present program has evolved significantly, allowing for the simulation of en
 
 We can firmly say that this project is finished. The next and last lab will conist in implementing a small version of the football application in C++. 
 
-Although the current code is  completed, there remains ample room for further refinement. As previously mentioned, focusing on various details could significantly enhance the overall quality of the project. But we can firmly say that after all the labs this project has imporved a lot and that the final version looks pretty good.
+Although the current code is  completed, there remains ample room for further refinement. As previously mentioned, focusing on various details could significantly enhance the overall quality of the project. But we can be proud since after all the labs this project has imporved a lot and the final version looks good.
 
 
 
