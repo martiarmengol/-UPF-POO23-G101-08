@@ -209,8 +209,39 @@ public abstract class PlayerStats extends Player{
 ```
 
  ### Printing Goal Scorers & League Table:
+ The concluding phase of the lab session involves the printing of league tables and goal scorers. Within the League class, we implement the printTable method. This method operates by generating a list of TeamStats and populating it with the team statistics from all participating teams in the ongoing competition, achieved through calls to the getStats method of Team. Subsequently, the list of TeamStats can be easily sorted utilizing the Collections.sort method.
+ This is the method code: 
  
+ ```
+public void printTable() {
+        List<TeamStats> teamStatsList = new ArrayList<>();
+    
+        for (Team team : teams) {
+            TeamStats teamStats = team.getStats(this);
+            if (teamStats != null) {
+                teamStatsList.add(teamStats);
+            }
+        }
+    
+        // Use the compareTo method for sorting
+        teamStatsList.sort(TeamStats::compareTo);
+    
+        System.out.println("League Table for " + getName());
+        System.out.println("---------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s%n", "Team", "Wins", "Losses", "Ties", "G.For", "G.Against", "Points");
+        System.out.println("---------------------------------------------------------");
+        for (TeamStats teamStats : teamStatsList) {
+            System.out.printf("%-10s %-10d %-10d %-10d %-10d %-10d %-10d%n",
+                    teamStats.getTeam().getName(), teamStats.getWins(),
+                    teamStats.getLosses(), teamStats.getNoTies(),
+                    teamStats.getNoGoalsScored(), teamStats.getNoGoalsAgainst(),
+                    teamStats.getPoints());
+        }
+        System.out.println("---------------------------------------------------------");
+    }
 
+
+```
 ## DESCRIPTION OF ALTERNATIVE  
 
 
