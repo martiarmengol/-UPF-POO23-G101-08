@@ -64,7 +64,149 @@ As we can clearly se we have only have to override the method compareTo in Outfi
 
  ### Implementation Dictionary:
 
+Now we have to use a Dictionary to implement statistics of all competitions. To do so we will use the existing class HashMap. This  has to be created in the constructor of Team and
+Player. The main purpose is to be a le to modifiy the stats of a team and a player after a match of a competition is played.
 
+For the team stats initially we have to check the dictionary to determine whether the team possesses any statistics linked to the competition. If not then we will generate a instance of TeamStats and append it to the dictionary corresponding to the ongoing competition and subsequently execute the updateStats method of TeamStats, incorporating the provided match details. 
+Corresponding code:
+
+```
+import java.util.List;
+
+public class TeamStats extends Team implements Comparable<TeamStats>{
+    protected Team t;
+    protected int noMatches;
+    protected int noWins;
+    protected int noTies;
+    protected int noLosses;
+    protected int goalsScored;
+    protected int goalsAgainst;
+
+    public TeamStats(Team t){
+        super(t.name,t.country,t.gender);
+        this.t = t;
+    }
+
+    public Team getTeam() {
+        return t;
+    }
+
+    public int getNoGoalsScored() {
+        return goalsScored;
+    }
+
+    public int getNoGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+    public int getWins() {
+        return noWins;
+    }
+
+    public int getLosses() {
+        return noLosses;
+    }
+
+    public int getPoints() {
+        return (noWins * 3) + noTies;
+    }    
+
+    public int getNoTies() {
+        return noTies;
+    }
+
+    public void updateStats(Match match) {
+        if (match != null) {
+            if (match.getHomeTeam() == t) {
+                // Update stats based on the home team's performance
+                goalsScored += match.getHomeGoals();
+                goalsAgainst += match.getAwayGoals();
+                if (match.getHomeGoals() > match.getAwayGoals()) {
+                    noWins++;
+                } else if (match.getHomeGoals() < match.getAwayGoals()) {
+                    noLosses++;
+                }else if(match.getHomeGoals() == match.getAwayGoals()) {
+                    noTies++;
+                }    
+            } else if (match.getAwayTeam() == t) {
+                // Update stats based on the away team's performance
+                goalsScored += match.getAwayGoals();
+                goalsAgainst += match.getHomeGoals();
+                if (match.getAwayGoals() > match.getHomeGoals()) {
+                    noWins++;
+                } else if (match.getAwayGoals() < match.getHomeGoals()) {
+                    noLosses++;
+                }
+            }
+        }
+    }
+
+    public void printStats() {
+        System.out.println(" ");
+        System.out.println("Team: " + name + " stats");
+        System.out.println("Matches: " + noMatches);
+        System.out.println("Wins: " + noWins);
+        System.out.println("Losses: " + noLosses);
+        System.out.println("Ties: " + noTies);
+        System.out.println("Goals Against: " + goalsAgainst);
+        System.out.println("Goals Scored: " + goalsScored);
+    
+        System.out.println("Individual Player Stats:");
+        for (Player player : getPlayers()) {
+            PlayerStats playerStats = player.getStats(null);
+            if (playerStats != null) {
+                playerStats.printStats();
+            }
+        }
+    
+        System.out.println(" ");
+    }
+    
+
+    @Override
+    public int compareTo(TeamStats other) {
+        int thisPoints = this.noWins * 3 + this.noTies;
+        int otherPoints = other.noWins * 3 + other.noTies;
+
+        // Compare based on points
+        if (thisPoints != otherPoints) {
+            return Integer.compare(otherPoints, thisPoints); // Sort by points in descending order
+        }
+
+        int goalDifferenceThis = this.goalsScored - this.goalsAgainst;
+        int goalDifferenceOther = other.goalsScored - other.goalsAgainst;
+
+        // Compare based on goal difference
+        if (goalDifferenceThis != goalDifferenceOther) {
+            return Integer.compare(goalDifferenceOther, goalDifferenceThis); // Sort by goal difference in descending order
+        }
+
+        // Compare based on goals scored
+        return Integer.compare(other.goalsScored, this.goalsScored); // Sort by goals scored in descending order
+    }
+}
+```
+For the player statistics following participation in a match within a specified competition the method initiates by inspecting the dictionary to determine whether the player possesses any statistics linked to the specified competition. If not it is necessary to create a new instance PlayerStats object and include it in the dictionary corresponding to the ongoing competition.
+Corresponding code:
+```
+public abstract class PlayerStats extends Player{
+    protected Player player;
+    protected int noMatches;
+
+    public PlayerStats(Player p){
+        super(p.gender, p.name, p.age, p.nationality);
+    }
+
+    public Player getPlayer(){
+        return player;
+    }
+
+    public abstract void updateStats(Match m);
+    public abstract void printStats();
+}
+
+
+```
 
  ### Printing Goal Scorers & League Table:
  
