@@ -242,6 +242,46 @@ public void printTable() {
 
 
 ```
+
+And now the last thig we have to do is implement the method printGoalScorers of the Competition class and to do so we have also implemented the method getOutfielderStats, which
+returns a list of OutfielderStats for all outfielder players of the competition: 
+This is the code of both methods implemented in the competition class: 
+
+
+```
+public void printTopGoalScorers(int numPlayers) {
+        List<OutfielderStats> goalScorers = getOutfielderStats();
+
+        goalScorers.sort(OutfielderStats::compareTo);
+
+        System.out.println("Top Goal Scorers for " + getName());
+        System.out.println("----------------------------------------");
+        for (int i = 0; i < Math.min(numPlayers, goalScorers.size()); i++) {
+            OutfielderStats scorer = goalScorers.get(i);
+            System.out.println(scorer.getName() + ": " + scorer.getGoals() + " goals");
+        }
+        System.out.println("----------------------------------------");
+    }
+
+    private List<OutfielderStats> getOutfielderStats() {
+        List<OutfielderStats> statsList = new ArrayList<>();
+
+        for (Team team : teams) {
+            for (Player player : team.getOutfielders()) {
+                OutfielderStats outfielderStats = (OutfielderStats) player.getStats(this);
+                if (outfielderStats != null) {
+                    statsList.add(outfielderStats);
+                }
+            }
+        }
+
+        return statsList;
+    }
+
+
+```
+
+
 ## DESCRIPTION OF ALTERNATIVE  
 
 
