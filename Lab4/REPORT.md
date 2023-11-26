@@ -43,9 +43,20 @@ public int compareTo(TeamStats other) {
 
 ```
 
- ### Implementation Comparable:
  
  ### Sorting  Goal Scorers:
+ In this case is more simple since we just have to sort the goal scorers according to the total goals they have scored and to do so we just have to compare noGoals in the class OutfielderStats of all the players.
+ Here is the corresponding code:
+
+ ```
+
+    @Override
+    public int compareTo(OutfielderStats other) {
+        return Integer.compare(other.noGoals, this.noGoals); // Sort by goals in descending order
+    }
+
+
+```
 
  ### Implementation Dictionary:
 
