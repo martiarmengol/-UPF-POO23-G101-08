@@ -59,8 +59,12 @@ public int compareTo(TeamStats other) {
 
 
 ```
+As we can clearly se we have only have to override the method compareTo in OutfielderStats.
+
 
  ### Implementation Dictionary:
+
+
 
  ### Printing Goal Scorers & League Table:
  
