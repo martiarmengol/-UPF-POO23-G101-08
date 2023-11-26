@@ -288,3 +288,20 @@ In this lab we had to work and implement new things we hadn't wroked with before
 
 
 ## CONCLUSION
+
+The present program has evolved significantly, allowing for the simulation of entire leagues featuring diverse teams from the same country and players of the same gender. It's worth noting that numerous details can be infinitely added to enhance and expand this project. But this project is actually coming to an end. 
+
+We can firmly say that this project is finished. The next and last lab will conist in implementing a small version of the football application in C++. 
+
+Although the current code is  completed, there remains ample room for further refinement. As previously mentioned, focusing on various details could significantly enhance the overall quality of the project. But we can firmly say that after all the labs this project has imporved a lot and that the final version looks pretty good.
+
+
+
+
+
+
+
+
+
+
+
