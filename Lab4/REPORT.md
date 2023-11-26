@@ -16,6 +16,8 @@
  
  This is the corresponding code that can be found in the class TeamStats:
  ```
+
+@Override
 public int compareTo(TeamStats other) {
         int thisPoints = this.noWins * 3 + this.noTies;
         int otherPoints = other.noWins * 3 + other.noTies;
