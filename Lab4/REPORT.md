@@ -5,6 +5,7 @@
  to sort both league tables and goal scorers. We will also implement a Dictionary to work with the stats. Finally implment printing methods for league tables and goal scorers.
 
  ### Sorting League Tables:
+ Depending on the results of the matches, each teams is sorted with the best teams at the top. The criteria we will use is the general one in football: Win= 3 points, Tie = 1 point, Loss = 0 points.
 
  ### Implementation Comparable:
  
