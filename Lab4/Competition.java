@@ -55,11 +55,7 @@ public abstract class Competition {
 
     public void simulateMatches(){
         for (Match match : matches) {
-            match.simulateMatch();
-            
-            match.getHomeTeam().update(match,this); 
-            match.getAwayTeam().update(match,this); 
-            
+            match.simulateMatch(); 
         }
     }
 
@@ -84,102 +80,33 @@ public abstract class Competition {
         return teamStatsList;
     }
 
-    public void printTopScorers(int numTopScorers) {
-        System.out.println(">>>>>>>>>>TEAM STATS<<<<<<<<<<");
-        System.out.println("League Table for " + getName());
-        System.out.println("---------------------------------------------------------");
-        System.out.printf("%-20s %-10s %-10s %-10s %-10s%n", "Team", "Wins", "Losses", "Goals For", "Goals Against");
-        System.out.println("---------------------------------------------------------");
-    
-        List<TeamStats> teamStatsList = calculateTeamStats();
-        Collections.sort(teamStatsList);
-    
-        for (int i = 0; i < Math.min(numTopScorers, teamStatsList.size()); i++) {
-            TeamStats teamStats = teamStatsList.get(i);
-            Team team = teamStats.getTeam();
-            
-            System.out.printf("%-20s %-10d %-10d %-10d %-10d%n",
-                    team.getName(),
-                    teamStats.getWins(),
-                    teamStats.getLosses(),
-                    teamStats.getNoGoalsScored(),
-                    teamStats.getNoGoalsAgainst());
-        }
-    
-        System.out.println("---------------------------------------------------------");
-        System.out.println("Top Goal Scorers:");
+    public void printTopGoalScorers(int numPlayers) {
+        List<OutfielderStats> goalScorers = getOutfielderStats();
+
+        goalScorers.sort(OutfielderStats::compareTo);
+
+        System.out.println("Top Goal Scorers for " + getName());
         System.out.println("----------------------------------------");
-    
-        for (PlayerStats playerStats : topScorers) {
-            if (playerStats != null && playerStats.getPlayer() != null) {
-                System.out.println(playerStats.getPlayer().getName());
-            }
+        for (int i = 0; i < Math.min(numPlayers, goalScorers.size()); i++) {
+            OutfielderStats scorer = goalScorers.get(i);
+            System.out.println(scorer.getName() + ": " + scorer.getGoals() + " goals");
         }
+        System.out.println("----------------------------------------");
     }
-    
-    public void updateTopScorers(List<TeamStats> teamStatsList) {
-        // Clear existing top scorers
-        topScorers.clear();
-    
-        // Collect all player stats
-        List<PlayerStats> allPlayerStats = new ArrayList<>();
-        for (TeamStats teamStats : teamStatsList) {
-            allPlayerStats.addAll(teamStats.getPlayerStats());
-        }
-    
-        // Sort player stats by goals scored in descending order
-        allPlayerStats.sort(Comparator.comparingInt(PlayerStats::getGoalsScored).reversed());
-    
-        // Add the top scorers to the topScorers list
-        int count = 0;
-        for (PlayerStats playerStats : allPlayerStats) {
-            topScorers.add(playerStats);
-            count++;
-            if (count == 5) { // Adjust the number (5) based on the desired top scorers count
-                break;
-            }
-        }
-    }
-    
-
-    private Player findTopScorer(List<Player> players) {
-        // Remove null elements from the list
-        players.removeIf(Objects::isNull);
-    
-        // Sort the list based on goals scored in descending order
-        players.sort(Comparator.comparingInt(player -> {
-            if (player instanceof OutFielder) {
-                PlayerStats stats = ((OutFielder) player).getStats(this); // adjust this line based on your actual structure
-                if (stats instanceof OutfielderStats) {
-                    return ((OutfielderStats) stats).getGoals();
-                } else {
-                    // Handle the case when the player is an OutFielder but doesn't have OutfielderStats
-                    return 0;
-                }
-            }
-            // If the player is not an OutFielder, return 0
-            return 0;
-        }).reversed());
-    
-        // Return the top scorer or null if the list is empty
-        return players.isEmpty() ? null : players.get(0);
-    }
-    
-
 
     private List<OutfielderStats> getOutfielderStats() {
-        List<OutfielderStats> outfielderStatsList = new ArrayList<>();
+        List<OutfielderStats> statsList = new ArrayList<>();
 
         for (Team team : teams) {
-            for (Player player : team.getPlayers()) {
-                if (player instanceof OutFielder) {
-                    OutfielderStats outfielderStats = (OutfielderStats) player.getStats(this);
-                    outfielderStatsList.add(outfielderStats);
+            for (Player player : team.getOutfielders()) {
+                OutfielderStats outfielderStats = (OutfielderStats) player.getStats(this);
+                if (outfielderStats != null) {
+                    statsList.add(outfielderStats);
                 }
             }
         }
 
-        return outfielderStatsList;
+        return statsList;
     }
 
 }

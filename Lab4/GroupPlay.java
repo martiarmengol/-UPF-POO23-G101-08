@@ -19,6 +19,10 @@ public class GroupPlay extends Competition {
         groups.add(l);
     }
 
+    public List<League> getGroups() {
+        return this.groups;
+    }
+
     public void generateMatches(){
         for(League group : groups){
             group.generateMatches();

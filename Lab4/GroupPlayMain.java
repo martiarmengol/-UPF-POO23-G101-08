@@ -1,6 +1,6 @@
 //package Lab3;
 
-public class GroupPlayMain {
+/*public class GroupPlayMain {
     public static void main(String[] args) {
         Country countryA = new Country("Spain");
         Country countryB = new Country("Germany");
@@ -101,6 +101,57 @@ public class GroupPlayMain {
         // Print match results and tables for each group
         groupPlay.printMatches();
         groupPlay.printTables();
-        groupPlay.printTopScorers(groupPlay.getTotalPlayers());
+        groupA.printTopGoalScorers(groupA.getTotalPlayers());
+        groupB.printTopGoalScorers(groupB.getTotalPlayers());
+    }
+}*/
+
+public class GroupPlayMain {
+    public static void main(String[] args) {
+        Country countryA = new Country("Spain");
+        Country countryB = new Country("Germany");
+        Country countryC = new Country("Italy");
+        Country countryD = new Country("France");
+        Country countryE = new Country("Portugal");
+
+        GroupPlay groupPlay = new GroupPlay(true, "Champions League", countryA, Gender.MALE, 5);
+
+        // Create and add teams to GroupPlay
+        for (int groupNumber = 1; groupNumber <= 5; groupNumber++) {
+            League group = new League(true, "Group " + groupNumber, new Country("Group " + groupNumber + " Country"), Gender.MALE);
+
+            for (int teamNumber = 1; teamNumber <= 10; teamNumber++) {
+                Team team = new Team("Team" + teamNumber, countryA, Gender.MALE);
+
+                // Add outfielders to the team
+                for (int i = 1; i <= 10; i++) {
+                    OutFielder player = new OutFielder(Gender.MALE, "Player" + i, 25, countryA);
+                    team.addPlayer(player);
+                }
+
+                // Add a goalkeeper to the team
+                GoalKeeper goalie = new GoalKeeper(Gender.MALE, "Goalie" + teamNumber, 28, countryA);
+                team.addPlayer(goalie);
+
+                // Add the team to the group
+                group.addTeam(team);
+            }
+
+            // Add the group to the GroupPlay
+            groupPlay.addGroup(group);
+        }
+
+        // Generate and simulate matches within each group
+        groupPlay.generateMatches();
+        groupPlay.simulateMatches();
+
+        // Print match results and tables for each group
+        groupPlay.printMatches();
+        groupPlay.printTables();
+
+        // Print top goal scorers for each group
+        for (Competition group : groupPlay.getGroups()) {
+            group.printTopGoalScorers(group.getTotalPlayers());
+        }
     }
 }

@@ -104,7 +104,7 @@ public class GlobalMain {
         // Print match results and tables for each group
         groupPlay.printMatches();
         groupPlay.printTables();
-        groupPlay.printGoalScorers(groupPlay.getTotalPlayers());
+        groupPlay.printTopGoalScorers(groupPlay.getTotalPlayers());
 
         //LEAGUE
         System.out.println(" ");
@@ -132,7 +132,7 @@ public class GlobalMain {
         }
 
         league.printTable();
-        league.printGoalScorers(league.getTotalPlayers());
+        league.printTopGoalScorers(league.getTotalPlayers());
 
         //CUP
         System.out.println(" ");

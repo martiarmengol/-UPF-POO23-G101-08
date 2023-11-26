@@ -34,36 +34,13 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
         return noLosses;
     }
 
+    public int getPoints() {
+        return (noWins * 3) + noTies;
+    }    
 
-    /*public void updateStats(Match match) {
-
-        for (Player player : t.getOutfielders()) {
-            if (player instanceof OutFielder) {
-                OutfielderStats outfielderStats = (OutfielderStats) player.getStats(match.getCompetition());
-
-                // Check if outfielderStats is not null before updating
-                if (outfielderStats != null) {
-                    outfielderStats.updateStats(match);
-                }
-            }
-        }
-
-        int homeGoals = match.getHomeGoals();
-        int awayGoals = match.getAwayGoals();
-
-        if (homeGoals > awayGoals) {
-            noWins++;
-        } else if (homeGoals < awayGoals) {
-            noLosses++;
-        } else {
-            noTies++;
-        }
-
-        goalsScored += homeGoals;
-        goalsAgainst += awayGoals;
-
-        noMatches++;
-    }*/
+    public int getNoTies() {
+        return noTies;
+    }
 
     public void updateStats(Match match) {
         if (match != null) {
@@ -75,7 +52,9 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
                     noWins++;
                 } else if (match.getHomeGoals() < match.getAwayGoals()) {
                     noLosses++;
-                }
+                }else if(match.getHomeGoals() == match.getAwayGoals()) {
+                    noTies++;
+                }    
             } else if (match.getAwayTeam() == t) {
                 // Update stats based on the away team's performance
                 goalsScored += match.getAwayGoals();
@@ -112,24 +91,24 @@ public class TeamStats extends Team implements Comparable<TeamStats>{
     
 
     @Override
-public int compareTo(TeamStats other) {
-    int thisPoints = this.noWins * 3 + this.noTies;
-    int otherPoints = other.noWins * 3 + other.noTies;
+    public int compareTo(TeamStats other) {
+        int thisPoints = this.noWins * 3 + this.noTies;
+        int otherPoints = other.noWins * 3 + other.noTies;
 
-    // Compare based on points
-    if (thisPoints != otherPoints) {
-        return Integer.compare(otherPoints, thisPoints); // Sort by points in descending order
+        // Compare based on points
+        if (thisPoints != otherPoints) {
+            return Integer.compare(otherPoints, thisPoints); // Sort by points in descending order
+        }
+
+        int goalDifferenceThis = this.goalsScored - this.goalsAgainst;
+        int goalDifferenceOther = other.goalsScored - other.goalsAgainst;
+
+        // Compare based on goal difference
+        if (goalDifferenceThis != goalDifferenceOther) {
+            return Integer.compare(goalDifferenceOther, goalDifferenceThis); // Sort by goal difference in descending order
+        }
+
+        // Compare based on goals scored
+        return Integer.compare(other.goalsScored, this.goalsScored); // Sort by goals scored in descending order
     }
-
-    int goalDifferenceThis = this.goalsScored - this.goalsAgainst;
-    int goalDifferenceOther = other.goalsScored - other.goalsAgainst;
-
-    // Compare based on goal difference
-    if (goalDifferenceThis != goalDifferenceOther) {
-        return Integer.compare(goalDifferenceOther, goalDifferenceThis); // Sort by goal difference in descending order
-    }
-
-    // Compare based on goals scored
-    return Integer.compare(other.goalsScored, this.goalsScored); // Sort by goals scored in descending order
-}
 }

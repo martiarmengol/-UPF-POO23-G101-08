@@ -49,12 +49,9 @@ public class Match {
     public void simulateMatch(){
         Random random = new Random();
     
-        // Simulate the match
-        int homeGoals = random.nextInt(6) + 1;  // Add 1 to ensure a positive value
-        int awayGoals = random.nextInt(6) + 1;  // Add 1 to ensure a positive value
-
-
-
+        int homeGoals = random.nextInt(6) + 1;  
+        int awayGoals = random.nextInt(6) + 1; 
+        
         for (int i = 0; i < homeGoals; i++) {
             int indexHome = random.nextInt(homeTeam.getPlayers().size());
             if((homeTeam.getPlayers().get(indexHome) instanceof OutFielder) == true){

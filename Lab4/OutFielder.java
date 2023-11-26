@@ -11,8 +11,4 @@ public class OutFielder extends Player {
     public void update(Competition c,Match m){
         
     }
-
-    public int getGoals() {
-        return 0;
-    }
 }
