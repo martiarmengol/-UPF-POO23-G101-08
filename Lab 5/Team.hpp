@@ -1,4 +1,3 @@
-
 #ifndef _TEAM_
 #define _TEAM_
 
