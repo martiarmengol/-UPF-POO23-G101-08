@@ -3,13 +3,15 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "Country.hpp"
 
 abstract class Player{
-    private:
+
+private:
     bool fmeale;
-    string name;
+    std::string name;
     int age,noMatches;
-    Coutry nationality;
+    Country * nationality;
     
     public:
         Player(string name, bool g,int a, Coutry nat){
