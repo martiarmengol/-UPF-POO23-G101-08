@@ -4,6 +4,7 @@
 
 #include "Player.hpp"
 #include "Team.hpp"
+#include <random>
 
 class Match {
 
@@ -57,8 +58,14 @@ public:
     }
 
     void simulateMatch() {
-        goalOne = rand() % 6;
-        goalTwo = rand() % 6;
+        //goalOne = rand() % 6;
+        //goalTwo = rand() % 6;
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<int> goalDistribution(0, 5);
+        goalOne = goalDistribution(gen);
+        goalTwo = goalDistribution(gen);
+
         simulateScorers(teamOne, scorersOne, goalOne);
         simulateScorers(teamTwo, scorersTwo, goalTwo);
     }
