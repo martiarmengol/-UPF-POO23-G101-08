@@ -10,8 +10,8 @@ public class League extends Competition {
             for (int j = i + 1; j < teams.size(); j++) {
                 Team team1 = teams.get(i);
                 Team team2 = teams.get(j);
-                matches.add(new Match(team1, team2));
-                matches.add(new Match(team2, team1)); 
+                matches.add(new Match(team1, team2, null));
+                matches.add(new Match(team2, team1, null)); 
             }
         }
     }

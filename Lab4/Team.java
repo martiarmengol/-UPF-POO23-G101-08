@@ -88,4 +88,7 @@ public class Team {
         }
     }
 
+    public void updateStats(Match match) {
+    }
+
 }

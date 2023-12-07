@@ -56,8 +56,8 @@ public abstract class Competition {
         for (Match match : matches) {
             match.simulateMatch();
             
-            match.getHomeTeam().updateStats((CupMatch) match); 
-            match.getAwayTeam().updateStats((CupMatch) match); 
+            match.getHomeTeam().updateStats(match); 
+            match.getAwayTeam().updateStats(match); 
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class Competition {
         }
     }
 
-    public void printGoalScorers(int k) {
+    /*public void printGoalScorers(int k) {
     // Create a list to store all outfielders from the teams
     List<OutFielder> outfielders = new ArrayList<>();
     
@@ -89,6 +89,6 @@ public abstract class Competition {
         OutFielder outfielder = outfielders.get(i);
         System.out.println((i + 1) + ". " + outfielder.getName() + " (" + outfielder.getGoals() + " goals)");
     }
-    }
+    }*/
 
 }

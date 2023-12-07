@@ -42,7 +42,7 @@ public class Cup extends Competition {
                 Team awayTeam = tr.get(round).get(i + numMatches);
     
                 if (homeTeam != null && awayTeam != null) {
-                    CupMatch match = new CupMatch(homeTeam, awayTeam);
+                    CupMatch match = new CupMatch(homeTeam, awayTeam, null);
                     mr.get(round + 1).add(match);
     
                     // Determine the winner and add it to the next round

@@ -66,6 +66,6 @@ public class LeagueMain {
         }
 
         league.printTable();
-        league.printGoalScorers(league.getTotalPlayers());
+        //league.printGoalScorers(league.getTotalPlayers());
     }
 }
